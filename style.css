@@ -1,24 +1,51 @@
-@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
-@import "https://fonts.googleapis.com/css?family=Cutive+Mono";
-
 body {
-    background: url("background.jpg") no-repeat fixed top center;
-    background-size: cover;
-    font-family: 'Cutive Mono', monospace;
+    background: #3c3f41;
+    font-family: monospace;
+    color: #d1d1d1;
+    font-size: 14px;
+    line-height: 1.3em;
+    padding: 6px
 }
-body>.container {
-    background: rgba(255, 255, 255, .85);
-    margin: 36px auto
+#terminal {
+    background: #2B2B2B;
+    margin: 0 auto;
+    padding: 3px;
+    max-width: 81em;
+    min-height: 20em;
 }
-.header>img {
-    opacity: .65;
-}
-.header::before, .header small::before {
-    display: inline-block;
-    content: '/';
-}
-.header::before {
+#header::before {
+    content: 'johmanx@kirito';
+    padding-right: 8px;
+    color: #a6b825;
     float: left;
-    font-size: 24px;
-    margin-top: -6px
+}
+#author::before {
+    display: inline-block;
+    content: '/home/';
+    color: #4a92ec;
+}
+#author {
+    color: #4a92ec;
+    text-transform: lowercase;
+}
+#page::before {
+    display: inline;
+    content: "$ preach "
+}
+#date::before {
+    display: inline;
+    content: "("
+}
+#date::after {
+    display: inline;
+    content: ")"
+}
+p {
+    margin: 0 0 1em;
+}
+p:last-child {
+    margin: 0;
+}
+#content {
+    padding-top: 1em;
 }
