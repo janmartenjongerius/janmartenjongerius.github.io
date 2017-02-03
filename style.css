@@ -4,7 +4,8 @@ body {
     color: #d1d1d1;
     font-size: 14px;
     line-height: 1.3em;
-    padding: 6px
+    padding: 0;
+    margin: 0;
 }
 #terminal {
     background: #2B2B2B;
@@ -12,6 +13,7 @@ body {
     padding: 3px;
     max-width: 81em;
     min-height: 20em;
+    box-shadow: rgba(0, 0, 0, .6) 2px 2px 12px 2px;
 }
 #header::before {
     content: 'johmanx@kirito';
