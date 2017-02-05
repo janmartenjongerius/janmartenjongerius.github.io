@@ -6,16 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Jan-Marten de Boer</title>
         <link href="style.css" rel="stylesheet">
+        <link rel="canonical" href="http://janmarten.name/{{ output.path }}" />
     </head>
     <body>
         <div id="terminal">
             <div id="header">
-                <span id="date">2017-02-02 13:37</span>
-                <span id="author">Jan-Marten</span>
-                <span id="page">index.md</span>
+                <span id="date">{{ output.metaData.datePublished|date("Y-m-d H:i") }}</span>
+                <span id="author">{{ source.metaData.author.name }}</span>
+                <span id="page">{{ source.path }}</span>
             </div>
             <div id="content">
-                <p>Under construction</p>
+                {{ content|raw }}
             </div>
         </div>
     </body>

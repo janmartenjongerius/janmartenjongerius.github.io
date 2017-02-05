@@ -1,0 +1,13 @@
+{
+  "name": "johmanx10/website",
+  "minimum-stability": "dev",
+  "require-dev": {
+    "zero-config/preacher": "*"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "/home/johmanx/git/preacher"
+    }
+  ]
+}
