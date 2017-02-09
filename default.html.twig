@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ source.path }} - Jan-Marten de Boer</title>
         <link href="/css/style.css" rel="stylesheet">
+{% if content matches '/<pre><code/' %}
         <link href="/css/prism.css" rel="stylesheet">
+{% endif %}
         <link rel="canonical" href="http://janmarten.name/{{ output.path }}" />
     </head>
     <body>
@@ -27,6 +29,8 @@
                 {{ content|raw }}
             </div>
         </div>
+{% if content matches '/<pre><code/' %}
         <script type="application/javascript" src="js/prism.js"></script>
+{% endif %}
     </body>
 </html>
