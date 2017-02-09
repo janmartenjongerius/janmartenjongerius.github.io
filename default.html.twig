@@ -5,18 +5,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ source.path }} - Jan-Marten de Boer</title>
-        <link href="css/style.css" rel="stylesheet">
-        <link href="css/prism.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
+        <link href="/css/prism.css" rel="stylesheet">
         <link rel="canonical" href="http://janmarten.name/{{ output.path }}" />
     </head>
     <body>
-        <div id="terminal">
+        <div id="terminal" itemscope itemtype="https://schema.org/Article">
             <div id="header">
-                <span id="date">{{ output.metaData.datePublished|date("Y-m-d H:i") }}</span>
-                <span id="author">{{ source.metaData.author.name }}</span>
-                <span id="page">{{ source.path }}</span>
+                <span id="date" itemprop="datePublished">{{ output.metaData.datePublished|date("Y-m-d H:i") }}</span>
+                <a href="/" id="author" itemprop="author">{{ source.metaData.author.name }}</a>
+                <span id="page" itemprop="title">{{ source.path }}</span>
+                <a
+                    href="https://github.com/johmanx10/johmanx10.github.io/blob/{{ source.metaData.version.short }}/{{ source.path }}"
+                    id="version"
+                    target="_blank"
+                    itemprop="version">{{ source.metaData.numRevisions }}</a>
             </div>
-            <div id="content">
+            <div id="content" itemprop="articleBody">
                 {{ content|raw }}
             </div>
         </div>

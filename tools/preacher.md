@@ -2,7 +2,7 @@
 
 During my 100th attempt to start a developer blog, I looked around for a good
 solution to set up a nice and clean personal site, without having to think about
-maintenance. Given that being a developer is my day job, on my spare time I do
+maintenance. Given that being a developer is my day job, in my spare time I do
 not intend to maintain some elaborate hosting setup that requires my constant
 attention, in this world filled with security risks.
 
