@@ -10,7 +10,7 @@
         <link rel="canonical" href="http://janmarten.name/{{ output.path }}" />
     </head>
     <body>
-        <div id="terminal" itemscope itemtype="https://schema.org/Article">
+        <div id="terminal" itemscope itemtype="https://schema.org/CreativeWork">
             <div id="header">
                 <span id="date" itemprop="datePublished">{{ output.metaData.datePublished|date("Y-m-d H:i") }}</span>
                 <a href="/" id="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -23,7 +23,7 @@
                     target="_blank"
                     itemprop="version">{{ source.metaData.numRevisions }}</a>
             </div>
-            <div id="content" itemprop="articleBody mainEntityOfPage">
+            <div id="content" itemprop="mainEntity">
                 {{ content|raw }}
             </div>
         </div>
