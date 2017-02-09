@@ -6,9 +6,9 @@ maintenance. Given that being a developer is my day job, on my spare time I do
 not intend to maintain some elaborate hosting setup that requires my constant
 attention, in this world filled with security risks.
 
-As you might have noticed by now, I also like to ramble on, so it is clear I
-need to focus my time on becoming a better writer than fine tuning my skills as
-a website hoster.
+As you might have noticed by now, I like to ramble on, so it is clear I need to
+focus my time on becoming a better writer than fine tuning my skills as a
+website hoster.
 
 As I've known for a couple of years, I wanted to set up a static website, just
 to keep the focus on writing and styling my website. Even though I'm really
