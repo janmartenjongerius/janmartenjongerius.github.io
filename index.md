@@ -2,11 +2,12 @@
 
 I am:
 
-* A gamer. Passionate about the Zelda franchise.
-* A thinker. I love to talk about all kinds of subjects with fellow thinkers.
-* A developer. In a professional and personal capacity, I develop software solutions.
-* A speaker. Sharing knowledge is a fulfilling pastime.
-* An extraordinarily poor front-end guy. Just look at this page.
+* A **gamer**; Passionate about the Zelda franchise.
+* A **thinker**; I love to talk about all kinds of subjects with fellow thinkers.
+* A [**developer**](https://github.com/johmanx10); In a professional and personal capacity, I develop software solutions.
+* A [**speaker**](https://www.meetup.com/GroningenPHP/events/231992564/); Sharing knowledge is a fulfilling pastime.
+* An extraordinarily poor **front-end** guy; Just look at this page.
+* A [certified **Magento** developer](https://u.magento.com/certification/directory/dev/2203536/).
 
 My name is Jan-Marten de Boer. I hope you enjoy the bits and bobs that seem to
 congregate on this website.
