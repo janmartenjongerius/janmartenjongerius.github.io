@@ -2,6 +2,6 @@
   "name": "johmanx10/website",
   "license": "Apache-2.0",
   "require-dev": {
-    "zero-config/preacher": "^1.0.1"
+    "zero-config/preacher": "^1.1.0"
   }
 }
