@@ -10,7 +10,7 @@ on the radio today.
 
 You yourself have boundaries. They may not always be apparent. They may not always
 be the same. But they are there and for a good reason. They protect the integrity
-of your personality. Giving in on your boundaries can be of no consequence one
+of your personality. Giving in to your boundaries can be of no consequence one
 time, yet completely destroy your feeling of self-worth the next time around.
 
 Exploring your own boundaries can be a good thing, but only do it of your own
@@ -29,7 +29,7 @@ The reply I gave, to a similar question:
 
 > Well, I do not have a Facebook account.
 
-I have my own reasons for not having a Facebook account that is my own choice.
+I have my own reasons for not having a Facebook account. That is my own choice.
 Nowhere in the contract it said I had to have a Facebook account.
 
 The following, astonishing, reply came back:
@@ -70,8 +70,8 @@ However, I read through all policies and one screen gave me the following:
 ![Wipe device policy](google-apps-device-policies.png)
 
 I was outraged. This is my personal device. It is not expected of me to have it
-connected to my office account and I do that of my own accord. Then suddenly the
-employer decides that it should be able to wipe all your personal data from a
+connected to my office account and I do that of my own accord. Then suddenly, the
+employer decides that it should be able to wipe all your personal data, from a
 device that is not owned by them?
 
 I immediately disconnected all office accounts from my phone. The next monday one
@@ -98,7 +98,8 @@ time, don't fiddle with settings you don't know, in the weekend.
 Still, on a regular basis, I get asked to join people on LinkedIn, like their posts,
 connect to obscure professional networks, re-tweet and fill in circle jerk
 questionnaires. Some, I do act on, if I think it's in my personal interest or it
-does not harm my personal life or beliefs, but most of them are blatantly ignored.
+does not undermine my personal life or beliefs, but most of them are blatantly
+ignored.
 
 I hope this article inspires the reader to think twice before allowing their
 employer to take over their personal life and transform it into business value.
