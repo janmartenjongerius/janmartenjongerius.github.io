@@ -20,7 +20,7 @@ and tablets, with a passion.
 
 Oh, see, we're getting so much off track already. This is what happens each time
 I try to start a blog. One of my previous attempts ended up in a validation
-suite, called [HylianShield](https://github.com/HylianShield/validator).
+suite, called [HylianShield](hylianshield.html).
 Because, you know, I ended up writing a custom template engine and of course
 that required validation and of course I had to write my own solution for that.
 
