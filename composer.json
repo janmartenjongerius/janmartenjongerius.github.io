@@ -1,7 +1,27 @@
 {
   "name": "johmanx10/website",
   "license": "Apache-2.0",
+  "homepage": "https://janmarten.name",
+  "description": "The personal website of Jan-Marten de Boer.",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Jan-Marten de Boer",
+      "role": "developer",
+      "email": "janmarten@janmarten.name"
+    }
+  ],
   "require-dev": {
-    "zero-config/preacher": "^1.1.0"
+    "zero-config/preacher": "^2.0.0",
+    "zero-config/preacher-plugin-commonmark": "^1.0.0"
+  },
+  "archive": {
+    "exclude": [
+      "CNAME",
+      "*.md",
+      "**/*.md",
+      "*.twig",
+      "**/*.twig"
+    ]
   }
 }
