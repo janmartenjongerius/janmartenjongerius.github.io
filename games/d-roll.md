@@ -69,10 +69,14 @@ Now, that was easy! It is in a package I wrote, called [D-Roll](https://github.c
 ## Final thoughts
 
 One thing you may notice though, is that it does not support modifiers yet. There
-are currently 2 features I've been thinking about:
+are currently 3 features I've been thinking about:
 
-* Adding modifiers, to support rolls like `4D6+10`.
+* <del>Adding modifiers, to support rolls like `4D6+10`.</del> The current version supports it :)
 * Allow the eyes of a die to get translated to labels, like ♥.
 * Store the dice configuration under a name, like "Magic missile".
 
 Oh yeah. Don't forget: Happy dice rolling :)
+
+Updated interface:
+
+![D-Roll with modifiers](d-roll-with-modifiers.png)

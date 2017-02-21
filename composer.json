@@ -12,8 +12,7 @@
     }
   ],
   "require-dev": {
-    "zero-config/preacher": "^2.0.0",
-    "zero-config/preacher-plugin-commonmark": "^1.0.0"
+    "zero-config/preacher": "^2.0.0"
   },
   "archive": {
     "exclude": [
