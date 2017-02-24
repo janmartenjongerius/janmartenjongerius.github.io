@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Crockford's Base 32 - Jan-Marten de Boer</title>
+        <link href="/css/style.css" rel="stylesheet">
+        <link rel="canonical" href="http://janmarten.name/tools/crockford-base32.html" />
+    </head>
+    <body>
+        <div id="terminal" itemscope itemtype="https://schema.org/CreativeWork">
+            <div id="header">
+                <span id="date" itemprop="datePublished">2017-02-24 19:34</span>
+                <a href="/" id="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Jan-Marten de Boer</span></a>
+                <span id="page" itemprop="name">tools/crockford-base32.md</span>
+                <a
+                    href="https://github.com/johmanx10/johmanx10.github.io/blob/6c81630/tools/crockford-base32.md"
+                    id="version"
+                    target="_blank"
+                    itemprop="version">1</a>
+            </div>
+            <div id="content" itemprop="text">
+                <h1>Crockford's Base 32</h1>
+<p>As a developer with aspiration for greater insights and experiences, I look up
+to a number of more senior people in the branch.</p>
+<p>One, in particular, I keep tabs on, regularly. He has a great mind and comes up
+with the best solutions, often before people know they want it.</p>
+<p>This article describes how I
+<a href="https://github.com/hylianshield/base32-crockford">implemented</a>
+the Base 32 specification, designed by
+<a href="http://www.crockford.com">Douglas Crockford</a>.</p>
+<p>Douglas created an implementation that allows for an alphabet which can error
+correct itself to a certain degree. He would have a user be able to say out loud
+an encoded string, on the phone, and have it decoded correctly, even if the other
+person on the phone receives the characters incorrectly or inputs them incorrectly.</p>
+<p>Basically, he's allowing the human species to do what they're really good at.
+Obscure input and data and still expect a sensible result.</p>
+<p><img src="https://imgs.xkcd.com/comics/simple_answers.png" alt="Simple answers" /></p>
+<blockquote>
+<p>'Will [     ] allow us to better understand each other and thus make war
+undesirable?' is one that pops up whenever we invent a new communication medium.</p>
+</blockquote>
+<p>&quot;What kind of magic is this?&quot; - you might wonder. I wondered just about the same
+thing and with ample intrigue I spent some time reading and interpreting
+<a href="http://www.crockford.com/wrmg/base32.html">his specification</a>.</p>
+<p>Based on a number of principles, he creates an alphabet with the following in mind:</p>
+<ul>
+<li>Letters that allow the forming of offensive words should be left out.</li>
+<li>There are 32 characters in which a value can be encoded, which are all uppercase
+letters and the numbers 0 through 9.</li>
+<li>When decoding, both the lowercase and uppercase version can be used to resolve
+to the same value.</li>
+<li>The letters <code>i</code> <code>I</code> <code>l</code> and <code>L</code> look too much like the number <code>1</code>, so they are left out
+from the alphabet and instead all resolve to <code>1</code> as well.</li>
+<li>The letters <code>o</code> and <code>O</code> look too much like the number <code>0</code> and as such are
+excluded from the alphabet, to be interpreted as the number <code>0</code> when they are
+inputted.</li>
+</ul>
+<p>Since this form of encoding allows the encoding and decoding of numbers, his
+optional check symbol is really simple and still fairly ingenious. </p>
+<blockquote>
+<p>An application may append a check symbol to a symbol string. This check symbol
+can be used to detect wrong-symbol and transposed-symbol errors.
+This allows for detecting transmission and entry errors early and inexpensively.</p>
+<p>The check symbol encodes the number modulo 37, 37 being the least prime number
+greater than 32. We introduce 5 additional symbols that are used only for
+encoding or decoding the check symbol.</p>
+<p>The additional symbols were selected to not be confused with punctuation or
+with URL formatting.</p>
+</blockquote>
+<p>The additional check symbols being <code>*</code>, <code>~</code>, <code>$</code>, <code>=</code>, and <code>U</code>. Of course, since
+a user can also input <code>u</code> instead of <code>U</code>, both are accepted.</p>
+<p>Two aspects one can find in base encoded specifications still remain. The padding
+and partitioning of encoded strings. Both allowing an increased readability, in
+this specification.</p>
+<p>The partitioning symbol is set to <code>-</code> (dash) and is allowed at any arbitrary
+position in the encoded string. The padding symbol is set to <code>0</code>, which is also
+part of the alphabet, so yay for headaches during development.</p>
+<p>But all in all, the alphabet is really clean and does make for a nice to read
+encoded string.</p>
+<p>Now, I was left with two questions:</p>
+<ol>
+<li>Will the notation read from left to right or from right to left?</li>
+<li>If the check symbol is appended, can I assume that it is appended on the
+right-most position of the string?</li>
+</ol>
+<p>I decided that it was a good assumption to read from right to left and having a
+check symbol appended on the end of the string, thus placing the padding symbols
+on the left side of the string.</p>
+<p>So I went and developed that, but it didn't feel right. There was no way for me
+to validate my assumptions. The specification was not 100% ambiguous on this, as
+it does not define how the encoded value is calculated.</p>
+<p>So... no way to be sure... or was there? I went for a shot in the dark, gathered
+some courage and wrote the following e-mail. Remember that to me, this is the
+same as writing to a rock star:</p>
+<blockquote>
+<p>Hello Mr. Crockford,</p>
+<p>My name is Jan-Marten. I'm a developer and have written an implementation of
+your Base 32 specification in PHP. (<a href="http://www.crockford.com/wrmg/base32.html">http://www.crockford.com/wrmg/base32.html</a>)</p>
+<blockquote>
+<p><a href="https://github.com/HylianShield/base32-crockford">https://github.com/HylianShield/base32-crockford</a></p>
+</blockquote>
+<p>During development, I struggled to find a sensible way to represent numeric
+values with the supplied alphabet, since the specification does not dictate
+how the encoded value is built.</p>
+<p>Using the following, I derived what seemed the most logical representation:
+If the bit-length of the number to be encoded is not a multiple of 5 bits,
+then zero-extend the number to make its bit-length a multiple of 5.
+An application may append a check symbol to a symbol string.
+Since appending the check symbol, by my assumption, would place it on the
+right-most location of the encoded string, the zero-padding would go on the
+left side of the string, making the notation read from right to left.
+This is consistent with BIT-notations when they increase in size.</p>
+<p>However, this is an assumption on my part. I have seen multiple implementations
+of this specification in different languages, each to their own degree of success.
+However, the fear is that they become incompatible so long as the specification
+is unclear about this.</p>
+<p>If you are open to communication regarding this subject, I would like to hear
+your thoughts on this. The specification as-is is beautiful and in my opinion
+highly underappreciated.</p>
+<p>Sincerely,</p>
+<p>Jan-Marten de Boer
+An admirer of your work</p>
+</blockquote>
+<p>I thought something like: &quot;Well, that never gets any reply.&quot;</p>
+<p>But sure enough, just a couple of hours later, I get back a reply. And with great
+joy could he confirm my assumptions:</p>
+<blockquote>
+<p>Your reading is correct.</p>
+</blockquote>
+<p>And with this, I am a content developer.</p>
+<p>Have you ever got the chance to get in touch with your hero? If so, I hope you
+had a great experience. Just remember that we're all just people. Which means
+that you treat people with respect, give them the privacy they deserve and
+maybe, just maybe, you'll get lucky and find they actually take the time to give
+you a look, shake your hand, have a chat with you or read your email and send a
+reply.</p>
+<p>Also, we have a Base 32 encoder, which is user friendly, in PHP, which I think is
+pretty cool.</p>
+            </div>
+        </div>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-3307595-14', 'auto');
+          ga('send', 'pageview');
+        </script>
+    </body>
+</html>

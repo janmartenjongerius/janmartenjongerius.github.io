@@ -18,6 +18,7 @@ Tools and libraries I (co-)author and use myself:
 
 * [Preacher](tools/preacher.html), a static website generator
 * [HylianShield](tools/hylianshield.html), a validation suite with strict code libraries.
+* [Crockford's Base32](tools/crockford-base32.html), Douglas Crockford's Base 32.
 
 ## Games
 
