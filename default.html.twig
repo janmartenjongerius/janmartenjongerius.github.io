@@ -11,7 +11,7 @@
 {% endif %}
         <link rel="canonical" href="http://janmarten.name/{{ output.path }}" />
     </head>
-    <body>
+    <body class="page-{{ source.path|replace({'.md': '', '/': '-'}) }}">
         <div id="terminal" itemscope itemtype="https://schema.org/CreativeWork">
             <div id="header">
                 <span id="date" itemprop="datePublished">{{ output.metaData.datePublished|date("Y-m-d H:i") }}</span>

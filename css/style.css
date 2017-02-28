@@ -92,3 +92,9 @@ blockquote::after {
 blockquote > p:last-child {
     margin-bottom: 0;
 }
+
+body.page-index img:first-child {
+    float: right;
+    border-radius: 60% 0;
+    box-shadow: 6px 6px 0 0 rgba(100, 100, 100, 0.4), -6px 6px 0 0 rgba(70, 70, 70, 0.6);
+}
