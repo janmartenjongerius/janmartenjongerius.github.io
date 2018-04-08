@@ -17,8 +17,8 @@ body {
     max-height: 60em;
     overflow: auto;
 }
-#terminal pre {
-    background: none;
+#terminal pre, #terminal code {
+    background: #111;
 }
 #header::before {
     content: 'johmanx@kirito';
