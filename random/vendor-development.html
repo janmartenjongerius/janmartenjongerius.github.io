@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Developing in vendor directories - Jan-Marten de Boer</title>
+        <link href="/css/style.css?7a13dad" rel="stylesheet">
+        <link href="/css/prism.css?24dbb0a" rel="stylesheet">
+        <link rel="canonical" href="http://janmarten.name/random/vendor-development.html" />
+    </head>
+    <body class="page-random-vendor-development">
+        <div id="terminal" itemscope itemtype="https://schema.org/CreativeWork">
+            <div id="header">
+                <span id="date" itemprop="datePublished">2018-04-08 13:44</span>
+                <a href="/" id="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Jan-Marten de Boer</span></a>
+                <span id="page" itemprop="name">random/vendor-development.md</span>
+                <a
+                    href="https://github.com/johmanx10/johmanx10.github.io/blob/e9b0f35/random/vendor-development.md"
+                    id="version"
+                    target="_blank"
+                    itemprop="version">1</a>
+            </div>
+            <div id="content" itemprop="text">
+                <h1>Developing in vendor directories</h1>
+<p>In a recent version og PhpStorm, the IDE automatically excludes folders
+that are stored under the Composer vendor directory.</p>
+<p>Whether it is because of something PhpStorm does, or happens because of an
+installed Composer plugin, is besides the point.</p>
+<p>As a result of this, a conversation sparked up about whether one should develop
+files that are stored in the vendor directory.</p>
+<h2>Misconceptions about the vendor directory</h2>
+<blockquote>
+<p>One should not edit files under vendor.</p>
+</blockquote>
+<p>Editing vendor packages is debatable. There are some things you should be aware
+of and set up, before starting to edit vendor packages. If you rock a default
+Composer configuration, I would say editing vendor packages is indeed a bad
+practice.</p>
+<blockquote>
+<p>If you change anything inside the vendor directory, your next <code>composer update</code>
+will write over your changes.</p>
+</blockquote>
+<p>This points out a misconception caused by the default behavior of Composer, due
+to its default configuration.</p>
+<h2>When not to edit files in a vendor directory</h2>
+<p>If you use the default configuration of Composer, it will have a preferred
+installation strategy for all packages set to <code>auto</code>.</p>
+<p>It turns out a lot of developers are unaware that Composer is able to install
+packages with strategies that do not use <code>dist</code> packages, like <code>.zip</code> and <code>.tar</code>
+artifacts.</p>
+<p>By default all packages are installed through the <code>auto</code> strategy. This strategy
+will attempt to install a dist package, if available, and fall back to the source.
+In most cases, this is a clone of your VCS repository, like GIT.</p>
+<p>When packages are installed as a dist package, you should not edit the files in
+its resulting vendor directory, because a new composer update or install will
+override all your edits.</p>
+<h2>When to edit files in a vendor directory</h2>
+<p>Editing files in vendor packages is useful when patching bugs or writing new
+features for modules / plugins / extensions / bundles of an application project
+that has separated its components into multiple Composer packages.</p>
+<p>Whenever your package is installed using the <code>source</code> strategy, you are good to
+go on editing files in your vendor directory. When a package is installed as
+such, assuming your source is a GIT repository, it will do a <code>git clone</code> to
+install your package. This means you have a full GIT repository locally and you
+can commit and push changes you make.</p>
+<p>Now, if you do a <code>composer update</code>, Composer will check if there are unpushed
+changes. If it detects any, it will ask you to break off the install / update,
+stash changes, remove the package and gives some more options.</p>
+<p>On top of this, the command <code>composer status -v</code> becomes relevant and useful.
+This command is able to show you, for every vendor package, if it holds any
+changes that have not been pushed yet.</p>
+<p>When I alter <code>composer.json</code> in the <code>zero-config/preacher</code> package for my website,
+the following is shown by <code>composer status -v</code>:</p>
+<p><img src="composer-status.png" alt="composer status -v" /></p>
+<h2>Setting up a preferred installation strategy</h2>
+<p>Let's assume we work for the company ACME inc. and they use Symfony a lot, for
+which we are an active contributor. We want to install packages from <code>acme/*</code> and
+<code>symfony/*</code> as source and all other packages should install as <code>dist</code>, or fall
+back to <code>source</code> when the <code>dist</code> is unavailable.</p>
+<p>This can be achieved by putting the following in your global Composer configuration:</p>
+<pre><code class="language-json">{
+    "config": {
+        "preferred-install": {
+            "acme/*": "source",
+            "symfony/*": "source",
+            "*": "auto"
+        }
+    }
+}</code></pre>
+<p>The order in which these package patterns are supplied matters.</p>
+<blockquote>
+<p><em>Note:</em> Order matters. More specific patterns should be earlier than more
+relaxed patterns. When mixing the string notation with the hash configuration in
+global and package configurations the string notation is translated to a <code>*</code>
+package pattern.</p>
+</blockquote>
+<p>See <a href="https://getcomposer.org/doc/06-config.md#preferred-install">the official documentation</a>
+for more information on configuring the preferred installation strategy.</p>
+<p>Look for the <code>config.json</code> file in your composer home, or create it if it's missing.
+The following shows you where your global composer home is located.</p>
+<pre><code>composer global config home</code></pre>
+<h2>Continually developing a vendor package</h2>
+<p>When you, and possibly co-workers, are developing a new feature, you don't want to
+be constantly confronted with conflicts during composer updates. In order to
+develop a new feature for a vendor package, I suggest the following:</p>
+<ol>
+<li>Increase the version constraint of your package by 1 minor version</li>
+<li>Add a <code>dev-</code> constraint for the same package under <code>require-dev</code> with a version
+alias for the new version constraint.</li>
+</ol>
+<p>Before:</p>
+<pre><code class="language-json">{
+    "require": {
+        "acme/powder-factory": "^1.0"
+    }
+}</code></pre>
+<p>After:</p>
+<pre><code class="language-json">{
+    "require": {
+        "acme/powder-factory": "^1.1"
+    },
+    "require-dev": {
+        "acme/powder-factory": "dev-feature/ACME-1 as 1.1.0"
+    }
+}</code></pre>
+<p>When running <code>composer install --no-dev</code>, it will do a normal production
+installation using the constraints in <code>require</code>. Currently, the version <code>1.1.0</code>
+is still under development, so it would not be able to install your package until
+this new version is released.</p>
+<p>When running <code>composer install</code> without the <code>--no-dev</code> option, it will install
+the package using the branch <code>feature/ACME-1</code>. The <code>dev-</code> prefix simply tells
+Composer it has to look for a branch. This constraint is followed by the alias,
+<code>as 1.1.0</code>. This tells Composer to interpret the contents of our branch as if it
+were released as version <code>1.1.0</code>, which makes it conform to the version
+constraint put in the <code>require</code> section. This is a necessary part, if you have
+your <code>minimum-stability</code> set to <code>stable</code>.</p>
+<p>With the version constraints set up as done above, every <code>composer update</code> will
+look for a new commit in the repository of that package. Whenever a new commit is
+available, it will install this commit. If there are local changes, Composer will
+ask what to do with these changes. This ensures you don't lose changes you made
+between <code>composer update</code> calls.</p>
+<h2>Conclusion</h2>
+<p>Changing files under <code>vendor</code> can be done, if your workflow takes into account
+some small rules. With the default Composer configuration, it is ill advised to
+modify vendor packages.</p>
+<p>Read more on setting up proper
+<a href="https://getcomposer.org/doc/articles/versions.md">version constraints</a> and
+<a href="https://getcomposer.org/doc/06-config.md#preferred-install"><code>preferred-install</code></a>
+configurations.</p>
+            </div>
+        </div>
+        <script type="application/javascript" src="/js/prism.js?24dbb0a"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-3307595-14', 'auto');
+          ga('send', 'pageview');
+        </script>
+    </body>
+</html>
