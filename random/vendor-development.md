@@ -1,6 +1,6 @@
 # Developing in vendor directories
 
-In a recent version og PhpStorm, the IDE automatically excludes folders
+In a recent version of PhpStorm, the IDE automatically excludes folders
 that are stored under the Composer vendor directory.
 
 Whether it is because of something PhpStorm does, or happens because of an
