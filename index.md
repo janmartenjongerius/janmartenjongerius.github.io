@@ -28,4 +28,5 @@ Tools and libraries I (co-)author and use myself:
 
 ## Random thoughts
 
+* [Developing in vendor directories](random/vendor-development.html).
 * [Boundaries between professional and personal life](random/boundaries.html).
