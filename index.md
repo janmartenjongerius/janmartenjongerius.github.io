@@ -1,6 +1,6 @@
 # And so we begin
 
-![Jan-Marten de Boer](img/avatar.png)
+![Jan-Marten de Boer](img/avatar.jpg)
  
 I am:
 
