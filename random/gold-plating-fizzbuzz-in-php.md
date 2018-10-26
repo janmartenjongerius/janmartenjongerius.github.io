@@ -155,8 +155,9 @@ By defining the offsets in a dictionary, the numbers are no longer magic, but co
 > If the code was written slightly differently, the NPath complexity could be halved or less, due to a high number of
   paths created by `if`'s and `else`s. The first `if` is objectively superfluous. The last `else` as well.
 
-Although nesting a `foreach` inside the `for` has increased the cyclomatic complexity, it now only has a single `if`
-expression used to match all words against the current index.
+Although nesting a `foreach` inside the `for` has increased the
+[cyclomatic complexity](https://codellama.io/docs/cyclomatic-complexity/), it now only has a single `if` expression used
+to match all words against the current index.
 
 > Again, out of scope of the challenge, perhaps, but this solution doesn't really address the domain problem that is
   looking for a solution. The real question of the challenge, in my opinion, is to show each matching word for a

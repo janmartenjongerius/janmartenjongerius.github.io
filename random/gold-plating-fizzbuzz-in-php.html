@@ -16,7 +16,7 @@
                 <a href="/" id="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Jan-Marten de Boer</span></a>
                 <span id="page" itemprop="name">random/gold-plating-fizzbuzz-in-php.md</span>
                 <a
-                    href="https://github.com/johmanx10/johmanx10.github.io/blob/dd0764a/random/gold-plating-fizzbuzz-in-php.md"
+                    href="https://github.com/johmanx10/johmanx10.github.io/blob/4aaa02e/random/gold-plating-fizzbuzz-in-php.md"
                     id="version"
                     target="_blank"
                     itemprop="version">2</a>
@@ -158,8 +158,9 @@ the reader / maintainer of the code with vague expressions.</p>
 <p>If the code was written slightly differently, the NPath complexity could be halved or less, due to a high number of
 paths created by <code>if</code>'s and <code>else</code>s. The first <code>if</code> is objectively superfluous. The last <code>else</code> as well.</p>
 </blockquote>
-<p>Although nesting a <code>foreach</code> inside the <code>for</code> has increased the cyclomatic complexity, it now only has a single <code>if</code>
-expression used to match all words against the current index.</p>
+<p>Although nesting a <code>foreach</code> inside the <code>for</code> has increased the
+<a href="https://codellama.io/docs/cyclomatic-complexity/">cyclomatic complexity</a>, it now only has a single <code>if</code> expression used
+to match all words against the current index.</p>
 <blockquote>
 <p>Again, out of scope of the challenge, perhaps, but this solution doesn't really address the domain problem that is
 looking for a solution. The real question of the challenge, in my opinion, is to show each matching word for a
