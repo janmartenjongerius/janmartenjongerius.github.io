@@ -28,5 +28,6 @@ Tools and libraries I (co-)author and use myself:
 
 ## Random thoughts
 
+* [Gold plating FizzBuzz in PHP](random/gold-plating-fizzbuzz-in-php.html).
 * [Developing in vendor directories](random/vendor-development.html).
 * [Boundaries between professional and personal life](random/boundaries.html).
