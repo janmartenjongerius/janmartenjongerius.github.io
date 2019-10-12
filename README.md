@@ -1,6 +1,3 @@
----
-title: 'Jan-Marten'
----
 # Introduction
 
 Hello, my name is Jan-Marten de Boer. I'm a Dutch born and raised technology
