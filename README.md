@@ -11,7 +11,7 @@ My main hobbies and interests involve:
 - Philanthropy
 - Playing around with LEGOs
 - Video games, in particular "The legend of Zelda"
-- Creating a new programming language (public link will follow)
+- Creating [a new programming language](https://janmarten.name/symbiont)
 
 ## Activities
 
