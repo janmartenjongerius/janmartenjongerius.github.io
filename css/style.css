@@ -377,17 +377,15 @@ figure > figcaption {
     text-align: center;
 }
 
-@media (hover: hover) {
-    .carousel figure:before {
-        animation-name: toNext, snap;
-        animation-timing-function: ease;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
-    }
+.carousel figure:before {
+    animation-name: toNext, snap;
+    animation-timing-function: ease;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
 
-    .carousel li:last-child figure:before {
-        animation-name: toStart, snap;
-    }
+.carousel li:last-child figure:before {
+    animation-name: toStart, snap;
 }
 
 @media (prefers-reduced-motion: reduce) {
