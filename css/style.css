@@ -156,7 +156,7 @@ footer::after {
     border-bottom-color: var(--body-border-color);
 }
 
-a:visited {
+a, a:visited {
     color: inherit;
 }
 
