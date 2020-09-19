@@ -5,6 +5,7 @@
     --line-height: 1.6em;
     --viewport-width: 80vw;
     --viewport-max-width: 1024px;
+    --content-max-width: 908px;
     --logo-size: 160px;
     --body-border-color: #eee;
 
@@ -339,6 +340,7 @@ dl dd:not(:last-child) {
         0
         0;
     overflow: hidden;
+    max-width: var(--content-max-width);
 }
 
 .carousel figure {
