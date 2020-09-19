@@ -513,12 +513,12 @@
 
                 timeoutId = window.setTimeout(
                     function (elements) {
-                        elements.forEach(element => {
+                        Array.from(elements).forEach(element => {
                             element.outerHTML = element.innerHTML;
                         })
                     },
                     200,
-                    Array.from(document.getElementsByTagName('noscript'))
+                    document.getElementsByTagName('noscript')
                 );
             });
         }());
