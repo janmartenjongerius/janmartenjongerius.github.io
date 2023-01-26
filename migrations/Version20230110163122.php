@@ -14,7 +14,7 @@ final class Version20230110163122 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return '';
+        return 'Create employment, link to employer.';
     }
 
     public function up(Schema $schema): void

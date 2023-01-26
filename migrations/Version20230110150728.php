@@ -14,7 +14,7 @@ final class Version20230110150728 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return '';
+        return 'Create skill and messenger_messages.';
     }
 
     public function up(Schema $schema): void
