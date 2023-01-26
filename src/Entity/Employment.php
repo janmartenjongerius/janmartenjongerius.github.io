@@ -21,10 +21,10 @@ class Employment
     #[ORM\JoinColumn(nullable: false)]
     private ?Employer $employer = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $startAt = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $endAt = null;
 
     #[ORM\Column(type: Types::TEXT)]
