@@ -23,14 +23,20 @@
                 {% endblock %}
 
                 {% block employment_organization_member_duration %}
-                    <span>
-                        {{ this.employment|duration|trans }}
-                    </span>
+                    <span>{{ this.employment|duration|trans }}</span>
                 {% endblock %}
             {% endblock %}
 
             {% block employment_organization_member_title %}
                 <span itemprop="roleName">{{ this.employment.title }}</span>
+            {% endblock %}
+
+            {% block employment_organization_member_description %}
+                <div itemprop="description">{{ this.employment.description|nl2br }}</div>
+            {% endblock %}
+
+            {% block employment_organization_member_experience %}
+                <div itemprop="disambiguatingDescription">{{ this.employment.experience|nl2br }}</div>
             {% endblock %}
         </div>
         {% endblock %}
