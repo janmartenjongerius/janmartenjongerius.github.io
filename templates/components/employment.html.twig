@@ -1,0 +1,38 @@
+{% block employment_organization %}
+    <div itemscope itemtype="https://schema.org/Organization">
+        {% block employment_organization_name %}
+            <span itemprop="name">{{ this.employment.employer.name }}</span>
+        {% endblock %}
+
+        {% block employment_organization_member %}
+        <div itemprop="member" itemscope itemtype="https://schema.org/OrganizationRole">
+            {% block employment_organization_member_dates %}
+                {% block employment_organization_member_startDate %}
+                    <span itemprop="startDate">
+                        {{ this.employment.startAt|date('M Y') }}
+                    </span>
+                {% endblock %}
+
+                {% block employment_organization_member_endDate %}
+                    <span itemprop="endDate">
+                        {{ this.employment.endAt
+                            ? this.employment.endAt|date('M Y')
+                            : 'employment.present'|trans
+                        }}
+                    </span>
+                {% endblock %}
+
+                {% block employment_organization_member_duration %}
+                    <span>
+                        {{ this.employment|duration|trans }}
+                    </span>
+                {% endblock %}
+            {% endblock %}
+
+            {% block employment_organization_member_title %}
+                <span itemprop="roleName">{{ this.employment.title }}</span>
+            {% endblock %}
+        </div>
+        {% endblock %}
+    </div>
+{% endblock %}
