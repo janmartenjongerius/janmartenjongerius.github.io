@@ -56,6 +56,9 @@ Encore
         config.corejs = '3.23';
     })
 
+    // Enabled PostCSS loader, used by Tailwind.
+    .enablePostCssLoader()
+
     // enables Sass/SCSS support
     //.enableSassLoader()
 
