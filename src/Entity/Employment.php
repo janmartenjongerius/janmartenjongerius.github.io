@@ -30,9 +30,6 @@ class Employment
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $experience = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -94,18 +91,6 @@ class Employment
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getExperience(): ?string
-    {
-        return $this->experience;
-    }
-
-    public function setExperience(string $experience): self
-    {
-        $this->experience = $experience;
 
         return $this;
     }

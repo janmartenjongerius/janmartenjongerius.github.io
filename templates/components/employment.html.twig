@@ -46,21 +46,9 @@
         {% endblock %}
 
         {% block employment_description %}
-            {% if this.employment.description|length > 0 %}
-                <div>
-                    <h4>{{ 'employment.heading.description'|trans }}</h4>
-                    {{ this.employment.description|markdown }}
-                </div>
-            {% endif %}
-        {% endblock %}
-
-        {% block employment_experience %}
-            {% if this.employment.experience|length > 0 %}
-                <div>
-                    <h4>{{ 'employment.heading.experience'|trans }}</h4>
-                    {{ this.employment.experience|markdown }}
-                </div>
-            {% endif %}
+            <div>
+                {{ this.employment.description|markdown }}
+            </div>
         {% endblock %}
     </div>
 {% endblock %}
