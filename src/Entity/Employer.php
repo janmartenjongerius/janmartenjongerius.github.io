@@ -25,6 +25,9 @@ class Employer
     #[ORM\OneToMany(mappedBy: 'employer', targetEntity: Employment::class, orphanRemoval: true)]
     private Collection $employments;
 
+    #[ORM\ManyToOne]
+    private ?Image $logo = null;
+
     public function __construct()
     {
         $this->employments = new ArrayCollection();
@@ -85,6 +88,18 @@ class Employer
                 $employment->setEmployer(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLogo(): ?Image
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(?Image $logo): self
+    {
+        $this->logo = $logo;
 
         return $this;
     }

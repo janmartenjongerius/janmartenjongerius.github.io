@@ -1,10 +1,20 @@
 {% block employment_organization %}
     <div>
+        {% block employment_employer_logo %}
+            {% if this.employment.employer.logo %}
+                {{ this.employment.employer.logo|image(
+                    width = 100,
+                    height = 'auto',
+                    alt = this.employment.employer.name
+                ) }}
+            {% endif %}
+        {% endblock %}
+
         {% block employment_title %}
             <h3>{{ this.employment.title }}</h3>
         {% endblock %}
 
-        {% block employment_employer %}
+        {% block employment_employer_name %}
             <div>{{ this.employment.employer.name }}</div>
         {% endblock %}
 
