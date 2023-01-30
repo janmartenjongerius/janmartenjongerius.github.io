@@ -107,6 +107,6 @@ final class EmployerImportLogoCommand extends Command
             )
         );
 
-        return Command::SUCCESS;
+        return self::SUCCESS;
     }
 }
