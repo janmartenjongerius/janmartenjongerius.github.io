@@ -7,13 +7,9 @@
     <h1>Jan-Marten de Boer</h1>
 
     {% if employments|length > 0 %}
-        <h2>{{ 'header.employments'|trans }}</h2>
+        <h2>{{ 'heading.employments'|trans }}</h2>
         {% for employment in employments %}
             {{ component('employment', {employment: employment}) }}
-
-            {% if not loop.last %}
-                <hr>
-            {% endif %}
         {% endfor %}
     {% endif %}
 </div>

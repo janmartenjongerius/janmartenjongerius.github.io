@@ -3,14 +3,18 @@
 declare(strict_types=1);
 
 return [
-    'header' => [
+    'heading' => [
         'employments' => 'Employments'
     ],
     'employment' => [
         'present' => 'Present',
+        'heading' => [
+            'experience' => 'Experience',
+            'description' => 'Description'
+        ],
         'duration' => <<<TRANSLATION
-        {years, plural, =0 {} one {1 year} other {# years}}
-        {months, plural, =0 {} one {1 month} other {# months}}
+        {years, plural, =0 {} one {1 yr} other {# yrs}}
+        {months, plural, =0 {} one {1 mo} other {# mos}}
         TRANSLATION
     ]
 ];
