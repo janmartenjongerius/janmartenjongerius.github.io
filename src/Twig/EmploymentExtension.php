@@ -15,11 +15,9 @@ final class EmploymentExtension extends AbstractExtension
 {
     public const TRANSLATION_EMPLOYMENT_DURATION = 'employment.duration';
 
-    public function getFilters(): array
+    public function getFilters(): iterable
     {
-        return [
-            new TwigFilter('duration', $this->formatDuration(...))
-        ];
+        yield new TwigFilter('duration', $this->formatDuration(...));
     }
 
     public function formatDuration(Employment $employment): TranslatableInterface
