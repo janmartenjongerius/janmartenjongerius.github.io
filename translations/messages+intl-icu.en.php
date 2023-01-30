@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
     'heading' => [
-        'employments' => 'Employments'
+        'experience' => 'Experience'
     ],
     'employment' => [
         'present' => 'Present',
