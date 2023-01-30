@@ -14,27 +14,12 @@ class Image
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 30)]
-    private ?string $contentType = null;
-
     #[ORM\Column(type: Types::BLOB)]
     private $content = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getContentType(): ?string
-    {
-        return $this->contentType;
-    }
-
-    public function setContentType(string $contentType): self
-    {
-        $this->contentType = $contentType;
-
-        return $this;
     }
 
     /**

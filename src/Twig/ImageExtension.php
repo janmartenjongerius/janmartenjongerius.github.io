@@ -28,7 +28,7 @@ final class ImageExtension extends AbstractExtension
         int|string $width = self::DEFAULT_WIDTH,
         int|string $height = self::DEFAULT_HEIGHT
     ): string {
-        $contentType = strip_tags($image->getContentType());
+        $contentType = mime_content_type($image->getContent());
         $content = base64_encode(stream_get_contents($image->getContent()));
         $alt = strip_tags($alt);
 

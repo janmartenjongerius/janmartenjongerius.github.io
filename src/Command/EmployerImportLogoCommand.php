@@ -60,13 +60,6 @@ final class EmployerImportLogoCommand extends Command
             return self::INVALID;
         }
 
-        $contentType = mime_content_type($file);
-
-        if ($contentType === false) {
-            $io->error(sprintf('Content type of %s cannot be defined.', $file));
-            return self::INVALID;
-        }
-
         $employerId = $input->getOption('employer') ?? $io->askQuestion(
             new ChoiceQuestion(
                 'Select employer',
@@ -92,7 +85,6 @@ final class EmployerImportLogoCommand extends Command
         }
 
         $image = new Image();
-        $image->setContentType($contentType);
         $image->setContent(file_get_contents($file));
 
         $errors = $this->validator->validate($image);
