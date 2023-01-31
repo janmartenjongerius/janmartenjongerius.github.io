@@ -41,10 +41,10 @@ final class ImageExtension extends AbstractExtension
         }
 
         return <<<IMAGE
-            <img 
+            <img
                 alt="$alt" 
                 width="$width" 
-                height="$height" 
+                height="$height"
                 src="data:$contentType;base64,$content" />
         IMAGE;
     }
