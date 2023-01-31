@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#hero-bg {
+    background-image: url('../img/hero-background.jpeg');
+    background-size: auto 100%;
+    background-position-x: center;
+}
