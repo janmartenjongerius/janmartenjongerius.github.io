@@ -6,24 +6,19 @@ namespace App\Twig;
 
 use RuntimeException;
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 final class SvgExtension extends AbstractExtension
 {
     private array $symbols = [];
 
-    public function getFilters(): iterable
+    public function getFunctions(): iterable
     {
-        yield new TwigFilter(
+        yield new TwigFunction(
             'use',
             $this->getSymbol(...),
             ['is_safe' => ['html']]
         );
-    }
-
-    public function getFunctions(): iterable
-    {
         yield new TwigFunction(
             'svg_definitions',
             $this->getSvgDefinitions(...),
@@ -80,7 +75,7 @@ final class SvgExtension extends AbstractExtension
 
         if (!array_key_exists($id, $this->symbols)) {
             $assetRoot = realpath(
-                dirname(__DIR__, 2) . '/public'
+                dirname(__DIR__, 2) . '/assets'
             ) . DIRECTORY_SEPARATOR;
             $asset = realpath($assetRoot . $file);
 
