@@ -6,7 +6,7 @@
     <div class="mx-auto max-w-7xl pt-7">
         {% if employments|length > 0 %}
             <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
-                <h2 class="text-3xl font-medium leading-6 text-gray-900">{{ 'heading.experience'|trans }}</h2>
+                <h2 class="text-3xl font-medium leading-6 text-gray-700">{{ 'heading.experience'|trans }}</h2>
 
                 <ul role="list" class="divide-y divide-gray-200 mx-auto">
                     {% for employment in employments|sort((a, b) => b.startAt <=> a.startAt) %}
