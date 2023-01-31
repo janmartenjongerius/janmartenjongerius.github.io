@@ -28,43 +28,57 @@
                 {% endblock %}
 
                 <div class="self-center">
-                    {% block employment_title %}
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{ this.employment.title }}</h3>
-                    {% endblock %}
+                    <div class="flex">
+                        {% block employment_title %}
+                            <h3 class="text-lg font-medium leading-6 text-blue-700">{{ this.employment.title }}</h3>
+                        {% endblock %}
 
-                    {% block employment_employer_name %}
-                        <div>{{ this.employment.employer.name }}</div>
-                    {% endblock %}
+                        {% block employment_period %}
+                            <div class="text-gray-400 leading-6 px-2">
+                                {% block employment_period_start %}
+                                    <span>
+                                        {{ this.employment.startAt|date('M Y') }}
+                                    </span>
+                                {% endblock %}
 
-                    {% block employment_period %}
-                        <div class="text-gray-400">
-                            {% block employment_period_start %}
-                                <span>
-                                    {{ this.employment.startAt|date('M Y') }}
-                                </span>
+                                &hyphen;
+
+                                {% block employment_period_end %}
+                                    <span>
+                                        {{ this.employment.endAt
+                                        ? this.employment.endAt|date('M Y')
+                                        : 'employment.present'|trans
+                                        }}
+                                    </span>
+                                {% endblock %}
+
+                                &hyphen;
+
+                                {% block employment_period_duration %}
+                                    <span>{{ this.employment|duration|trans }}</span>
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+                    </div>
+
+                    {% block employment_employer %}
+                        <div class="flex">
+                            {% block employment_employer_name %}
+                                <div class="leading-6 text-gray-600">
+                                    {{ this.employment.employer.name }}
+                                </div>
                             {% endblock %}
 
-                            &hyphen;
-
-                            {% block employment_period_end %}
-                                <span>
-                                    {{ this.employment.endAt
-                                    ? this.employment.endAt|date('M Y')
-                                    : 'employment.present'|trans
-                                    }}
-                                </span>
-                            {% endblock %}
-
-                            &hyphen;
-
-                            {% block employment_period_duration %}
-                                <span>{{ this.employment|duration|trans }}</span>
+                            {% block employment_employer_description %}
+                                <div class="text-gray-400 leading-6 px-2">
+                                    {{ this.employment.employer.description }}
+                                </div>
                             {% endblock %}
                         </div>
                     {% endblock %}
 
                     {% block employment_description %}
-                        <div class="text-gray-600 py-2 leading-6">
+                        <div class="text-gray-600 text-lg pt-4 leading-6">
                             {{ this.employment.description|markdown }}
                         </div>
                     {% endblock %}
