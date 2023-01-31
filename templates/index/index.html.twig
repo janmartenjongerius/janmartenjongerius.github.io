@@ -2,15 +2,20 @@
 
 {% block title %}Jan-Marten de Boer{% endblock %}
 
-{% block body %}
-<div>
-    <h1>Jan-Marten de Boer</h1>
+{% block content %}
+    <div class="mx-auto max-w-7xl pt-7">
+        {% if employments|length > 0 %}
+            <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
+                <h2 class="text-3xl font-medium leading-6 text-gray-900">{{ 'heading.experience'|trans }}</h2>
 
-    {% if employments|length > 0 %}
-        <h2>{{ 'heading.experience'|trans }}</h2>
-        {% for employment in employments %}
-            {{ component('employment', {employment: employment}) }}
-        {% endfor %}
-    {% endif %}
-</div>
+                <ul role="list" class="divide-y divide-gray-200 mx-auto">
+                    {% for employment in employments %}
+                        <li class="py-4">
+                            {{ component('employment', {employment: employment}) }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}
