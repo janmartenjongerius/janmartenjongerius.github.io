@@ -9,7 +9,7 @@
                 <h2 class="text-3xl font-medium leading-6 text-gray-900">{{ 'heading.experience'|trans }}</h2>
 
                 <ul role="list" class="divide-y divide-gray-200 mx-auto">
-                    {% for employment in employments %}
+                    {% for employment in employments|sort((a, b) => b.startAt <=> a.startAt) %}
                         <li class="py-4">
                             {{ component('employment', {employment: employment}) }}
                         </li>
