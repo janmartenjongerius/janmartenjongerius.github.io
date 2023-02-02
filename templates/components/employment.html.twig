@@ -79,7 +79,12 @@
 
                     {% block employment_description %}
                         <div class="text-gray-600 text-lg pt-4 leading-6 space-y-3">
-                            {{ this.employment.description|markdown }}
+                            {{ this.employment.description|markdown|replace(
+                                {
+                                    '<ul>': '<ul class="list-disc list-inside">',
+                                    '<ol>': '<ol class="list-decimal list-inside">'
+                                }
+                            )|raw }}
                         </div>
                     {% endblock %}
                 </div>
