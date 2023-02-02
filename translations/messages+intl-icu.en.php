@@ -6,6 +6,12 @@ return [
     'heading' => [
         'experience' => 'Experience'
     ],
+    'hero' => [
+        'subtitle' => 'Programmer, mentor, problem solver.'
+    ],
+    'footer' => [
+        'rightsReserved' => 'All rights reserved.'
+    ],
     'employment' => [
         'present' => 'Present',
         'duration' => <<<TRANSLATION
