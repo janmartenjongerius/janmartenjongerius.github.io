@@ -4,6 +4,7 @@
 
 #hero-bg {
     background-image: url('../img/hero-background.jpeg');
-    background-size: auto 100%;
+    background-size: cover;
     background-position-x: center;
+    background-position-y: center;
 }
