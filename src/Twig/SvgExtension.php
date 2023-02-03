@@ -85,15 +85,15 @@ final class SvgExtension extends AbstractExtension
                 );
             }
 
-            if (!str_starts_with($asset, $assetRoot)) {
-                throw new RuntimeException(
-                    sprintf(
-                        'Asset "%s" tried to escape asset root "%s".',
-                        $asset,
-                        $assetRoot
-                    )
-                );
-            }
+//            if (!str_starts_with($asset, $assetRoot)) {
+//                throw new RuntimeException(
+//                    sprintf(
+//                        'Asset "%s" tried to escape asset root "%s".',
+//                        $asset,
+//                        $assetRoot
+//                    )
+//                );
+//            }
 
             $this->symbols[$id] = file_get_contents($asset);
         }

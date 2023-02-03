@@ -17,7 +17,7 @@ return [
         application, wherever and however it needs it most.
         TRANSLATION,
         'a' => [
-            'icon' => 'academic',
+            'icon' => 'academic-cap',
             'title' => 'Academic mindset',
             'description' => <<<TRANSLATION
             With an academic mindset, eager to learn and focused on your domain.
