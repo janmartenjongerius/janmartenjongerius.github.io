@@ -79,6 +79,12 @@ final class SvgExtension extends AbstractExtension
             ) . DIRECTORY_SEPARATOR;
             $asset = realpath($assetRoot . $file);
 
+            if ($asset === false) {
+                throw new RuntimeException(
+                    sprintf('Could not locate file: "%s%s"', $assetRoot, $file)
+                );
+            }
+
             if (!str_starts_with($asset, $assetRoot)) {
                 throw new RuntimeException(
                     sprintf(
