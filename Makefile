@@ -2,6 +2,8 @@ install::
 
 clean::
 	rm -rf vendor
+	rm -rf var/cache/*
+	rm -f var/log/*.log
 
 vendor/autoload.php: composer.lock composer.json
 	composer install
