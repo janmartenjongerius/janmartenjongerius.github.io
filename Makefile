@@ -1,13 +1,23 @@
-composer.lock: composer.json
+clean::
+	rm -rf vendor
+
+vendor/autoload.php: composer.lock composer.json
 	composer install
+	touch vendor/autoload.php
+
+composer.lock: composer.json
+	composer update
 	touch composer.lock
 
-install:: composer.lock
+install:: vendor/autoload.php
 
 node_modules/.package-lock.json:
-	nvm use 16 && npm ci
+	npm ci
 
 node_modules: node_modules/.package-lock.json
+
+clean::
+	rm -rf node_modules/
 
 node_modules/heroicons: node_modules
 
@@ -16,12 +26,13 @@ assets/icons/outline: node_modules/heroicons
 
 install:: assets/icons/outline
 
-assets/icons/solid: node_modules/heroicons
-	ln -s ../../node_modules/heroicons/24/solid assets/icons/solid
+clean::
+	rm -f assets/icons/outline
 
-install:: assets/icons/solid
+public/build/manifest.json: node_modules/.package-lock.json
+	npm run build
 
-assets/icons/mini: node_modules/heroicons
-	ln -s ../../node_modules/heroicons/20/solid assets/icons/mini
+install:: public/build/manifest.json
 
-install:: assets/icons/mini
+clean::
+	rm -rf public/build
