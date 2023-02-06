@@ -10,13 +10,20 @@ use Twig\TwigFunction;
 
 final class SvgExtension extends AbstractExtension
 {
+    use HtmlAttributesTrait;
+
+    private const DEFAULT_SVG_ATTRIBUTES = [
+        'xmlns' => 'http://www.w3.org/2000/svg',
+        'aria-hidden' => 'true'
+    ];
+
     private array $symbols = [];
 
     public function getFunctions(): iterable
     {
         yield new TwigFunction(
-            'use',
-            $this->getSymbol(...),
+            'svg',
+            $this->getSvg(...),
             ['is_safe' => ['html']]
         );
         yield new TwigFunction(
@@ -45,7 +52,7 @@ final class SvgExtension extends AbstractExtension
         $symbols = implode(PHP_EOL, $symbols);
 
         return <<<SVG
-        <svg style="height: 0">
+        <svg height="0">
             <defs>
                 $symbols
             </defs>
@@ -69,7 +76,7 @@ final class SvgExtension extends AbstractExtension
         );
     }
 
-    public function getSymbol(string $file): string
+    private function getSymbol(string $file): string
     {
         $id = self::normalizeSymbolId($file);
 
@@ -81,23 +88,42 @@ final class SvgExtension extends AbstractExtension
 
             if ($asset === false) {
                 throw new RuntimeException(
-                    sprintf('Could not locate file: "%s%s"', $assetRoot, $file)
+                    sprintf(
+                        'Could not locate file: "%s%s"',
+                        $assetRoot,
+                        $file
+                    )
                 );
             }
-
-//            if (!str_starts_with($asset, $assetRoot)) {
-//                throw new RuntimeException(
-//                    sprintf(
-//                        'Asset "%s" tried to escape asset root "%s".',
-//                        $asset,
-//                        $assetRoot
-//                    )
-//                );
-//            }
 
             $this->symbols[$id] = file_get_contents($asset);
         }
 
         return sprintf('<use href="#%s" />', $id);
+    }
+
+    public function getSvg(
+        string $file,
+        string $class = null,
+        int|string $width = null,
+        int|string $height = null
+    ): string {
+        $symbol = $this->getSymbol($file);
+        $attributes = self::getHtmlAttributes(
+            array_replace(
+                self::DEFAULT_SVG_ATTRIBUTES,
+                [
+                    'class' => $class,
+                    'width' => $width,
+                    'height' => $height
+                ]
+            )
+        );
+
+        return <<<SVG
+        <svg $attributes>
+            $symbol
+        </svg>
+        SVG;
     }
 }

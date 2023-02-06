@@ -12,13 +12,12 @@
                                 alt = this.employment.employer.name
                             ) }}
                         {% else %}
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 class="text-emerald-600"
-                                 width="{{ imageWidth }}px"
-                                 height="{{ imageWidth }}px"
-                            >
-                                {{ use('icons/outline/building-office.svg') }}
-                            </svg>
+                            {{ svg(
+                                file = 'icons/outline/building-office.svg',
+                                class = 'text-emerald-600',
+                                width = imageWidth,
+                                height = imageWidth
+                            ) }}
                         {% endif %}
                     </div>
                 {% endblock %}
