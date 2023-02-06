@@ -34,7 +34,7 @@ clean::
 public/build/manifest.json: node_modules/.package-lock.json
 	npm run build
 
-install:: public/build/manifest.json
+build:: public/build/manifest.json
 
 clean::
 	rm -rf public/build
@@ -49,7 +49,7 @@ dist/index.html: vendor/autoload.php
 	php bin/console app:build > dist/index.html.tmp
 	mv dist/index.html.tmp dist/index.html
 
-install:: dist/index.html dist/build/manifest.json
+build:: dist/index.html dist/build/manifest.json
 
 clean::
 	rm -rf dist
