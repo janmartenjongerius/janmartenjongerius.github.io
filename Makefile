@@ -1,3 +1,5 @@
+install::
+
 clean::
 	rm -rf vendor
 
@@ -36,3 +38,18 @@ install:: public/build/manifest.json
 
 clean::
 	rm -rf public/build
+
+
+dist/build/manifest.json: public/build/manifest.json
+	mkdir -p dist
+	cp -r public/build dist/
+
+dist/index.html: vendor/autoload.php
+	mkdir -p dist
+	php bin/console app:build > dist/index.html.tmp
+	mv dist/index.html.tmp dist/index.html
+
+install:: dist/index.html dist/build/manifest.json
+
+clean::
+	rm -rf dist

@@ -1,3 +1,5 @@
+### Ignore dist files.
+/dist/
 
 ###> symfony/framework-bundle ###
 /.env.local
