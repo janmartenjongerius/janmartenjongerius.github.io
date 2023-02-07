@@ -49,7 +49,7 @@ dist/build/manifest.json: public/build/manifest.json
 dist/index.html: vendor/autoload.php
 	mkdir -p dist
 	php bin/console app:build > dist/index.html.tmp
-	mv dist/index.html.tmp dist/index.html
+	mv -f dist/index.html.tmp dist/index.html
 
 build:: dist/index.html dist/build/manifest.json
 
