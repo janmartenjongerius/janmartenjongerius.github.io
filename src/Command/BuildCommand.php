@@ -7,6 +7,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 #[AsCommand(
@@ -17,6 +18,7 @@ final class BuildCommand extends Command
 {
     public function __construct(
         private readonly KernelInterface $kernel,
+        private readonly RequestStack $requestStack,
         string $name = null
     ) {
         parent::__construct($name);
@@ -28,7 +30,10 @@ final class BuildCommand extends Command
             $this
                 ->kernel
                 ->handle(
-                    Request::createFromGlobals(),
+                    (
+                        $this->requestStack->getCurrentRequest()
+                        ?? Request::createFromGlobals()
+                    ),
                     catch: false
                 )
                 ->getContent()
