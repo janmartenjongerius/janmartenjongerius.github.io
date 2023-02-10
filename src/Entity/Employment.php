@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EmploymentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,6 +31,14 @@ class Employment
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
+
+    #[ORM\OneToMany(mappedBy: 'employment', targetEntity: EmploymentSkill::class, orphanRemoval: true)]
+    private Collection $employmentSkills;
+
+    public function __construct()
+    {
+        $this->employmentSkills = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -91,6 +101,36 @@ class Employment
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EmploymentSkill>
+     */
+    public function getEmploymentSkills(): Collection
+    {
+        return $this->employmentSkills;
+    }
+
+    public function addEmploymentSkill(EmploymentSkill $employmentSkill): self
+    {
+        if (!$this->employmentSkills->contains($employmentSkill)) {
+            $this->employmentSkills->add($employmentSkill);
+            $employmentSkill->setEmployment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEmploymentSkill(EmploymentSkill $employmentSkill): self
+    {
+        if ($this->employmentSkills->removeElement($employmentSkill)) {
+            // set the owning side to null (unless already changed)
+            if ($employmentSkill->getEmployment() === $this) {
+                $employmentSkill->setEmployment(null);
+            }
+        }
 
         return $this;
     }
