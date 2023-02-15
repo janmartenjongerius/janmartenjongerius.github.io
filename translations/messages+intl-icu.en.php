@@ -11,11 +11,15 @@ return [
         'support' => 'Technical support'
     ],
     'hero' => [
-        'subtitle' => 'Programmer, mentor, problem solver.',
+        'subtitle' => <<<TRANSLATION
+        An experienced programmer, compassionate mentor and driven problem
+        solver.
+        I'm the right kind of developer for challenging business solutions.
+        TRANSLATION,
         'cta' => 'Get in touch'
     ],
     'feature' => [
-        'subtitle' => 'Everything you need to develop your app',
+        'subtitle' => 'The experienced developer you need',
         'cta' => 'Get in touch',
         'description' => <<<TRANSLATION
         An experienced developer, with a broad set of skills, supporting your
