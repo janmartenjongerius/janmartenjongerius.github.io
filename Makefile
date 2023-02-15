@@ -33,6 +33,14 @@ install:: assets/icons/outline
 clean::
 	rm -f assets/icons/outline
 
+assets/icons/mini: node_modules/heroicons
+	ln -s ../../node_modules/heroicons/20/solid assets/icons/mini
+
+install:: assets/icons/mini
+
+clean::
+	rm -f assets/icons/mini
+
 public/build/manifest.json: node_modules/.package-lock.json
 	npm run build
 
