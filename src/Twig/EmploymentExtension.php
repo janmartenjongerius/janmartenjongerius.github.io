@@ -6,6 +6,7 @@ namespace App\Twig;
 
 use App\Entity\Employment;
 use DateTimeImmutable;
+use DateTimeInterface;
 use Symfony\Component\Translation\TranslatableMessage;
 use Symfony\Contracts\Translation\TranslatableInterface;
 use Twig\Extension\AbstractExtension;
@@ -20,11 +21,13 @@ final class EmploymentExtension extends AbstractExtension
         yield new TwigFilter('duration', $this->formatDuration(...));
     }
 
-    public function formatDuration(Employment $employment): TranslatableInterface
+    public function formatDuration(Employment|DateTimeInterface $employment): TranslatableInterface
     {
-        $duration = ($employment->getEndAt() ?? new DateTimeImmutable())->diff(
-            $employment->getStartAt()
-        );
+        $duration = $employment instanceof Employment
+            ? ($employment->getEndAt() ?? new DateTimeImmutable())->diff(
+                $employment->getStartAt()
+            )
+            : (new DateTimeImmutable())->diff($employment);
 
         return new TranslatableMessage(
             self::TRANSLATION_EMPLOYMENT_DURATION,
