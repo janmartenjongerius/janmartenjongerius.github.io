@@ -79,7 +79,7 @@ return [
             'email_subject' => 'New job offer',
             'phone' => '+31 85 301 4757',
             'phone_numeric' => '0031853014757',
-            'availability' => 'Mon-Fri 4pm to 8pm CEST',
+            'availability' => 'Mon-Fri 4pm to 8pm CET',
             'description' => <<<TRANSLATION
             Want me to join your team and build something amazing? Feel free to reach out.
             Expect up to 2 business days on response time.
@@ -90,7 +90,7 @@ return [
             'email_subject' => 'Technical support',
             'phone' => '+31 85 301 4757',
             'phone_numeric' => '0031853014757',
-            'availability' => 'Mon-Fri 4pm to 8pm CEST',
+            'availability' => 'Mon-Fri 4pm to 8pm CET',
             'description' => <<<TRANSLATION
             Need technical support with prior work or open source projects? Get
             in touch and expect a speedy response.
