@@ -76,6 +76,6 @@ return [
         TRANSLATION
     ],
     'event' => [
-        'read_more' => 'Read more'
+        'read_more' => 'Show event'
     ]
 ];
