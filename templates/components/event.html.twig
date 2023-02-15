@@ -1,0 +1,76 @@
+{% block event %}
+    <div class="relative pb-8" id="event-{{ this.event.id }}">
+        {% block event_separator %}
+            {% if this.withSeparator %}
+                <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+            {% endif %}
+        {% endblock %}
+
+        <div class="relative flex space-x-3">
+            <div>
+                {% block event_icon %}
+                    <span class="h-8 w-8 rounded-full bg-emerald-600 flex items-center justify-center ring-8 ring-white">
+                        {{ svg(
+                            file = 'icons/mini/chat-bubble-left.svg',
+                            class = 'text-white',
+                            width = 20,
+                            height = 20,
+                            fill = 'currentColor'
+                        ) }}
+                    </span>
+                {% endblock %}
+            </div>
+            <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                <div class="space-y-3">
+                    {% block event_name %}
+                        {% if this.event.url %}
+                            <a href="{{ this.event.url }}" target="_blank" title="{{ this.event.name }}">
+                        {% endif %}
+
+                            <h3 class="font-medium text-gray-900">
+                                {{ this.event.name }}
+                            </h3>
+
+                        {% if this.event.url %}
+                            </a>
+                        {% endif %}
+                    {% endblock %}
+
+                    {% block event_description %}
+                        <div class="text-sm text-gray-500 leading-5 space-y-4">
+                            {{ this.event.description|markdown|replace(
+                                {
+                                    '<ul>': '<ul class="list-disc list-inside">',
+                                    '<ol>': '<ol class="list-decimal list-inside">'
+                                }
+                            )|raw }}
+                        </div>
+                    {% endblock %}
+
+                    {% block event_link %}
+                        {% if this.event.url %}
+                            <div>
+                                <a href="{{ this.event.url }}" target="_blank" title="{{ this.event.name }}" class="inline-flex text-emerald-700">
+                                    {{ 'event.read_more'|trans }}
+                                    {{ svg(
+                                        file = 'icons/outline/arrow-top-right-on-square.svg',
+                                        class = 'ml-0.5 -mb-1 mt-1',
+                                        width = 16,
+                                        height = 16
+                                    ) }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endblock %}
+                </div>
+                <div class="whitespace-nowrap text-right text-sm text-gray-500">
+                    {% block event_date %}
+                        <time datetime="{{ this.event.startAt|date('Y-m-d H:i:s') }}">
+                            {{ this.event.startAt|date('M j Y') }}
+                        </time>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

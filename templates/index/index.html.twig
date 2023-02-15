@@ -3,9 +3,9 @@
 {% block title %}Jan-Marten de Boer{% endblock %}
 
 {% block content %}
-    <div class="mx-auto max-w-7xl pt-7">
+    <div class="mx-auto max-w-7xl">
         {% if employments|length > 0 %}
-            <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
+            <div class="border-b border-gray-200 px-4 py-5 sm:px-6 mt-7">
                 <h2 class="text-3xl font-medium leading-6 text-gray-700">{{ 'heading.experience'|trans }}</h2>
 
                 <ul role="list" class="divide-y divide-gray-200 mx-auto">
@@ -18,4 +18,24 @@
             </div>
         {% endif %}
     </div>
+{% endblock %}
+
+{% block feature %}
+    {{ parent() }}
+
+    {% if events|length > 0 %}
+        <div class="mx-auto max-w-4xl px-4 py-5 sm:px-6 mb-6">
+            <h2 class="text-3xl font-medium leading-6 text-gray-700">{{ 'heading.events'|trans }}</h2>
+
+            <div class="flow-root mt-7">
+                <ul role="list" class="-mb-8">
+                    {% for event in events|sort((a, b) => b.startAt <=> a.startAt) %}
+                        <li>
+                            {{ component('event', {event: event, withSeparator: loop.last == false})}}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

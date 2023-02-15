@@ -106,7 +106,8 @@ final class SvgExtension extends AbstractExtension
         string $file,
         string $class = null,
         int|string $width = null,
-        int|string $height = null
+        int|string $height = null,
+        ?string $fill = null
     ): string {
         $symbol = $this->getSymbol($file);
         $attributes = self::getHtmlAttributes(
@@ -115,7 +116,8 @@ final class SvgExtension extends AbstractExtension
                 [
                     'class' => $class,
                     'width' => $width,
-                    'height' => $height
+                    'height' => $height,
+                    'fill' => $fill
                 ]
             )
         );

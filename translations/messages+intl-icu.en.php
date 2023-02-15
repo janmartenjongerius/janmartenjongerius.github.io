@@ -5,7 +5,8 @@ declare(strict_types=1);
 return [
     'heading' => [
         'experience' => 'Experience',
-        'feature' => 'Develop more'
+        'feature' => 'Develop more',
+        'events' => 'Events'
     ],
     'hero' => [
         'subtitle' => 'Programmer, mentor, problem solver.'
@@ -73,5 +74,8 @@ return [
         {years, plural, =0 {} one {1 yr} other {# yrs}}
         {months, plural, =0 {} one {1 mo} other {# mos}}
         TRANSLATION
+    ],
+    'event' => [
+        'read_more' => 'Read more'
     ]
 ];
