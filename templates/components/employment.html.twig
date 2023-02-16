@@ -83,7 +83,7 @@
                     {% endblock %}
                 </div>
 
-                <div class="basis-1/3 text-sm font-medium text-gray-800 text-center self-center pl-2 md:pl-4">
+                <div class="basis-1/3 text-sm font-medium text-gray-800 text-center self-center md:pl-4">
                     {% block employment_skills %}
                         {# Todo: Fix sorting in repository #}
                         {% for skill in this.employment.employmentSkills|sort((a, b) =>
