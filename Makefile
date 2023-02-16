@@ -1,5 +1,7 @@
 install::
 
+build:: install
+
 clean::
 	rm -rf vendor
 	rm -rf var/cache/*
