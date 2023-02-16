@@ -1,8 +1,8 @@
 {% block employment_organization %}
     {% set imageWidth = 64 %}
     <div class="overflow-hidden" id="employment-{{ this.employment.id }}">
-        <div class="flex py-5 gap-6">
-                <div class="flex-shrink-0">
+        <div class="flex flex-col md:flex-row py-5 gap-10 md:gap-6">
+                <div class="flex-shrink-0 self-center md:self-start">
                     {% block employment_employer_logo %}
                         {% if this.employment.employer.logo %}
                             {{ this.employment.employer.logo|image(
@@ -21,7 +21,7 @@
                     {% endblock %}
                 </div>
 
-                <div class="basis-2/3">
+                <div class="basis-2/3 px-6 md:px-0">
                     <div class="flex">
                         {% block employment_title %}
                             <h3 class="text-lg font-medium leading-6 text-gray-700">{{ this.employment.title }}</h3>
@@ -83,7 +83,7 @@
                     {% endblock %}
                 </div>
 
-                <div class="basis-1/3 text-sm font-medium text-gray-800 text-right md:self-center md:text-center pl-2 md:pl-4">
+                <div class="basis-1/3 text-sm font-medium text-gray-800 text-center self-center pl-2 md:pl-4">
                     {% block employment_skills %}
                         {# Todo: Fix sorting in repository #}
                         {% for skill in this.employment.employmentSkills|sort((a, b) =>
