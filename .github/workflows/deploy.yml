@@ -19,21 +19,25 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    container: srcoder/development-php:php81-fpm
     steps:
-      - name: Install NPM
-        run: |
-          curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-          apt install -y nodejs
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer:v2
+        env:
+          fail-fast: true
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Build website
-        run: |
-          chown -R $USER .
-          chmod -R 0777 . 
-          make clean build
+        run: make clean build
         env:
           APP_ENV: prod
           APP_SECRET: ${{ secrets.APP_SECRET }}
