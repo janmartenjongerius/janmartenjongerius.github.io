@@ -35,6 +35,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      # The files must be owned by the same user as the container runs in.
+      - name: Update filesystem owner
+        run: chown -R app .
+
       - name: Build website
         run: make clean build
         env:
