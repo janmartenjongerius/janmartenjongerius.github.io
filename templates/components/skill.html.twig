@@ -1,0 +1,10 @@
+{% block skill %}
+    <span title="{{ this.skill.description }}"
+          class="cursor-help inline-flex items-center rounded-full hover:bg-emerald-600 hover:text-white bg-gray-100 mb-2.5 mr-0.5 px-2.5 py-0.5">
+        {{ svg(
+            file = 'icons/outline/hashtag.svg',
+            width = 12,
+            height = 12
+        ) }}{{ this.skill }}
+    </span>
+{% endblock %}
