@@ -44,6 +44,7 @@ clean::
 	rm -f assets/icons/mini
 
 public/build/manifest.json: node_modules/.package-lock.json
+	mkdir -p public/build
 	npm run build
 
 build:: public/build/manifest.json
