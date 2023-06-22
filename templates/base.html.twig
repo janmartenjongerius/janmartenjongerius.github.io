@@ -9,6 +9,10 @@
         {% endblock %}
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>💾</text></svg>">
 
+        {% block canonical %}
+            <link rel="canonical" href="{% block canonical_href %}{{ absolute_url(path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params'))) }}{% endblock %}" />
+        {% endblock %}
+
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
