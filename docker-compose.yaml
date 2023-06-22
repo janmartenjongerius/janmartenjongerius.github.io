@@ -1,0 +1,14 @@
+version: "3.9"
+name: janmarten_name
+
+services:
+  php:
+    image: srcoder/development-php:php81-fpm
+    volumes:
+      - ./:/data
+
+  nodejs:
+    image: node:16-alpine
+    working_dir: /home/node
+    volumes:
+      - ./:/home/node
