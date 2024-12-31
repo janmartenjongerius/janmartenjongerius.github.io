@@ -1,0 +1,32 @@
+{
+  "$schema": "../employer.json",
+  "name": "Slimmer AI",
+  "description": "Venture Studio",
+  "logo": "slimmer.jpeg",
+  "positions": [
+    {
+      "title": "Senior Software Engineer",
+      "description": "Development of new venture software as senior software engineer.",
+      "start_at": "2024-09-01",
+      "end_at": "2024-10-01",
+      "skills": [
+        {"id": "python"}
+      ]
+    },
+    {
+      "title": "Technical Lead",
+      "description": "As a Technical Lead my focus is to ensure the vision of founders translates into technical excellence, while unlocking the full potential of our engineers.",
+      "start_at": "2024-10-01",
+      "end_at": null,
+      "skills": [
+        {"id": "leadership"},
+        {"id": "mentoring"},
+        {"id": "python"},
+        {"id": "vue"},
+        {"id": "node"},
+        {"id": "php"},
+        {"id": "cicd"}
+      ]
+    }
+  ]
+}
