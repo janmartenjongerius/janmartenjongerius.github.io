@@ -10,7 +10,11 @@
       "start_at": "2024-09-01",
       "end_at": "2024-10-01",
       "skills": [
-        {"id": "python"}
+        {"id": "python"},
+        {"id": "js"},
+        {"id": "docker"},
+        {"id": "sysops"},
+        {"id": "devops"}
       ]
     },
     {
@@ -25,7 +29,11 @@
         {"id": "vue"},
         {"id": "node"},
         {"id": "php"},
-        {"id": "cicd"}
+        {"id": "cicd"},
+        {"id": "js"},
+        {"id": "docker"},
+        {"id": "sysops"},
+        {"id": "devops"}
       ]
     }
   ]
