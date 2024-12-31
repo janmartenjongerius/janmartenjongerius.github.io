@@ -12,9 +12,23 @@ on:
 jobs:
     validate:
         runs-on: ubuntu-latest
+
+        strategy:
+          fail-fast: false
+          matrix:
+            include:
+              - schema: data/employer.json
+                data: data/employer/*.json
+              - schema: data/event.json
+                data: data/event/*.json
+              - schema: data/skill.json
+                data: data/skill/*.json
+
         steps:
             - uses: actions/checkout@v4
-            - uses: walbo/validate-json@v1.1.0
+
+            - uses: ammarlakis/action-ajv@master
               with:
-                files: data/*/*.json
-                fail-on-missing-schema: true
+                schema: ${{ matrix.schema }}
+                data: ${{ matrix.data }}
+                allErrors: true
