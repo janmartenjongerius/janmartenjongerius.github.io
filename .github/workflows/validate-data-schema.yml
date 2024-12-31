@@ -33,4 +33,3 @@ jobs:
               schema: ${{ matrix.schema }}
               data: ${{ matrix.data }}
               allErrors: true
-              validateSchema: false
