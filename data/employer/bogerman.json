@@ -1,0 +1,20 @@
+{
+    "$schema": "../employer.json",
+    "name": "Bogerman",
+    "description": "Dutch middle school.",
+    "logo": "csg_bogerman.jpeg",
+    "positions": [
+        {
+            "title": "Ethical hacker",
+            "employer": "bogerman",
+            "description": "Part of a board of students to advise IT representative teachers for a local organization of schools.\n\n- We helped detect security leaks in the local networks.\n- We gave advice about student engagement through social media.\n- I wrote tools to connect external grading systems with local school systems.",
+            "start_at": "2007-12-01",
+            "end_at": "2009-06-01",
+            "skills": [
+                {"id": "php"},
+                {"id": "sysops"},
+                {"id": "mentoring"}
+            ]
+        }
+    ]
+}

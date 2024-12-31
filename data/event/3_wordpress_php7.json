@@ -1,0 +1,9 @@
+{
+    "$schema": "../event.json",
+    "name": "WordPress Meetup Grunn oktober",
+    "description": "Communities stay in touch with PHP at their own pace. This talk focuses on highlighting the features found in PHP 7 and 7.1. It shows off their benefits and gives you ammo to start upgrading your codebase today.",
+    "location": "Rozenburglaan 3, Groningen",
+    "url": "https://www.meetup.com/wordpress-meetup-grunn/events/242766306/",
+    "start_at": "2017-10-11T19:30:00+01:00",
+    "end_at": "2017-10-11T22:30:00+01:00"
+}

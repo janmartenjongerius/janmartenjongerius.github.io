@@ -1,0 +1,41 @@
+{
+    "$schema": "../employer.json",
+    "name": "elgentos",
+    "description": "IT services and consulting, focused on e-commerce.",
+    "logo": "elgentos.jpeg",
+    "positions": [
+        {
+            "title": "Senior developer",
+            "description": "Technical lead and senior developer on projects based on Shopware 6, Laravel and Magento 2. Advocating quality and maintainability throughout the company.\n\nI have a supporting role as mentor, support business decisions with technical insights and take lead on projects that require more architectural problem solving skills.\n\nMy experience as a Symfony developer has proven invaluable, with both Shopware 6 and Laravel projects.",
+            "start_at": "2020-11-01",
+            "end_at": "2023-06-30",
+            "skills": [
+                {"id": "php"},
+                {"id": "sysops"},
+                {"id": "mysql"},
+                {"id": "js"},
+                {"id": "devops"},
+                {"id": "mentoring"},
+                {"id": "git"},
+                {"id": "bash"},
+                {"id": "xdebug"},
+                {"id": "cicd"},
+                {"id": "docker"},
+                {"id": "leadership"},
+                {"id": "symfony"},
+                {"id": "redis"},
+                {"id": "nginx"},
+                {"id": "magento"},
+                {"id": "rabbitmq"},
+                {"id": "node"},
+                {"id": "twig"},
+                {"id": "react"},
+                {"id": "es"},
+                {"id": "vue"},
+                {"id": "shopware"},
+                {"id": "sentry"},
+                {"id": "laravel"}
+            ]
+        }
+    ]
+}

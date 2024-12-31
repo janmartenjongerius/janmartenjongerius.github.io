@@ -10,14 +10,21 @@ use Doctrine\ORM\Mapping as ORM;
 class Image
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?string $id = null;
 
     #[ORM\Column(type: Types::BLOB)]
     private $content = null;
 
-    public function getId(): ?int
+    public static function fromFile(string $path): static
+    {
+        $image = new static();
+        $image->id = pathinfo($path, PATHINFO_BASENAME);
+        $image->content = file_get_contents($path);
+        return $image;
+    }
+
+    public function getId(): ?string
     {
         return $this->id;
     }

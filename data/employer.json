@@ -1,0 +1,64 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/janmartenjongerius/janmartenjongerius.github.io/refs/heads/master/data/employer.json",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "logo": {
+            "type": "string"
+        },
+        "positions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "start_at": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "end_at": {
+                        "type": ["string", "null"],
+                        "format": "date"
+                    },
+                    "skills": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["id"]
+                        }
+                    }
+                },
+                "required": [
+                    "title",
+                    "description",
+                    "start_at",
+                    "end_at",
+                    "skills"
+                ]
+            }
+        }
+    },
+    "required": [
+        "name",
+        "description",
+        "positions"
+    ]
+}

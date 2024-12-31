@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "New Relic",
+    "description": "Track performance, bottlenecks, errors, and stack traces on production environments."
+}

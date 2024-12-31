@@ -1,0 +1,32 @@
+{
+    "$schema": "../employer.json",
+    "name": "Youwe",
+    "description": "IT services and consulting, focused on e-commerce.",
+    "logo": "youwe.jpeg",
+    "positions": [
+        {
+            "title": "Senior developer",
+            "description": "At Youwe, I filled the role of product developer. This entails R&D work, creating new products or extensions of existing products, that help us with our B2B and B2C clients.\n\nMy time with Youwe overlaps with my time at MediaCT, due to them moving forward as a single entity.",
+            "start_at": "2015-09-01",
+            "end_at": "2020-11-01",
+            "skills": [
+                {"id": "php"},
+                {"id": "sysops"},
+                {"id": "mysql"},
+                {"id": "js"},
+                {"id": "devops"},
+                {"id": "mentoring"},
+                {"id": "git"},
+                {"id": "symfony"},
+                {"id": "xdebug"},
+                {"id": "cicd"},
+                {"id": "docker"},
+                {"id": "leadership"},
+                {"id": "redis"},
+                {"id": "nginx"},
+                {"id": "magento"},
+                {"id": "rabbitmq"}
+            ]
+        }
+    ]
+}

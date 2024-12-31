@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "CI/CD",
+    "description": "Continuous integration and continuous deployment"
+}

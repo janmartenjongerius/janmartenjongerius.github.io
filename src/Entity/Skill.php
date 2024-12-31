@@ -12,9 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Skill implements SkillInterface
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?string $id = null;
 
     #[ORM\Column(length: 50, unique: true)]
     private ?string $name = null;
@@ -30,9 +29,16 @@ class Skill implements SkillInterface
         $this->employmentSkills = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
+    }
+
+    public function setId(string $id): self
+    {
+        $this->id = $id;
+        
+        return $this;
     }
 
     public function getName(): ?string

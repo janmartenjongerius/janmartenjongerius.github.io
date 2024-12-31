@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "Devops",
+    "description": "Developer operations and automations"
+}

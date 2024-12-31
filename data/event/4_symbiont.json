@@ -1,0 +1,9 @@
+{
+    "$schema": "../event.json",
+    "name": "On top of the Elephpant",
+    "description": "Have you ever wondered how your code is being read and interpreted? Do you feel the urge to write your own language, but don't know where to start?\n\nThis talk shows some of the basic concepts of programming languages. It gives pointers on where to start, resources to consume, design approaches to consider and a few pitfalls for the over confident.",
+    "location": "Online",
+    "url": "https://www.meetup.com/groningenphp/events/jhvhqrybcpbhb/",
+    "start_at": "2020-11-05T19:30:00+02:00",
+    "end_at": "2020-11-05T21:00:00+02:00"
+}

@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "Backbone.js",
+    "description": "Framework"
+}

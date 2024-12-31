@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/janmartenjongerius/janmartenjongerius.github.io/refs/heads/master/data/event.json",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string",
+            "format": "uri"
+        },
+        "start_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "end_at": {
+            "type": "string",
+            "format": "date-time"
+        }
+    },
+    "required": [
+        "name",
+        "description",
+        "start_at",
+        "end_at"
+    ]
+}

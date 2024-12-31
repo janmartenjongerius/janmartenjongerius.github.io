@@ -1,0 +1,27 @@
+{
+    "$schema": "../employer.json",
+    "name": "Abbi Insights",
+    "description": "Conversational chat technology as a service.",
+    "logo": "abbi_insights.jpeg",
+    "positions": [
+        {
+            "title": "Senior developer",
+            "description": "Senior developer for the Abbi platform.",
+            "start_at": "2023-07-01",
+            "end_at": "2024-10-31",
+            "skills": [
+                {"id": "php"},
+                {"id": "sysops"},
+                {"id": "mysql"},
+                {"id": "js"},
+                {"id": "devops"},
+                {"id": "git"},
+                {"id": "symfony"},
+                {"id": "cicd"},
+                {"id": "docker"},
+                {"id": "k8s"},
+                {"id": "vue"}
+            ]
+        }
+    ]
+}

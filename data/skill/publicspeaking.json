@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "Public speaking",
+    "description": "Giving talks at public events"
+}

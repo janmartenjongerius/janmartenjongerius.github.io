@@ -1,0 +1,20 @@
+name: Validate JSON data
+
+on:
+    push:
+        branches: [master]
+        paths:
+            - data/**.json
+            - .github/workflows/validate-data-schema.yml
+
+    workflow_dispatch:
+
+jobs:
+    validate:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: walbo/validate-json@v1.1.0
+              with:
+                files: data/*/*.json
+                fail-on-missing-schema: true

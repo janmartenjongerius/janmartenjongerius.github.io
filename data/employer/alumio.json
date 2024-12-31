@@ -1,0 +1,36 @@
+{
+    "$schema": "../employer.json",
+    "name": "Alumio",
+    "description": "IT services and consulting through cloud-based integration solutions.",
+    "logo": "alumio.jpeg",
+    "positions": [
+        {
+            "title": "Senior developer",
+            "description": "Alumio is a data integration platform. As senior developer, I co-architected and developed the back-end and API of Alumio. This has been mainly done using Symfony framework as a base for Alumio.\n\nI also improved the developer experience for its implementation developers, by writing thorough documentation, developer tooling and by building the automated review deployments and continuous integration tooling.",
+            "start_at": "2017-01-01",
+            "end_at": "2020-10-31",
+            "skills": [
+                {"id": "php"},
+                {"id": "sysops"},
+                {"id": "mysql"},
+                {"id": "js"},
+                {"id": "devops"},
+                {"id": "mentoring"},
+                {"id": "git"},
+                {"id": "symfony"},
+                {"id": "bash"},
+                {"id": "xdebug"},
+                {"id": "cicd"},
+                {"id": "docker"},
+                {"id": "leadership"},
+                {"id": "redis"},
+                {"id": "nginx"},
+                {"id": "node"},
+                {"id": "twig"},
+                {"id": "k8s"},
+                {"id": "react"},
+                {"id": "es"}
+            ]
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "$schema": "../event.json",
+    "name": "Comparing Frameworks",
+    "description": "What PHP Framework do you use? What are its strong points, and where is it less usefull? Analyze and share your experience in terms of the Jumbo Building Blocks of Jan-Marten Jongerius and Remko Silvis and hear what others think of the frameworks they used or tried!",
+    "location": "Herestraat 106, Groningen",
+    "url": "https://www.meetup.com/groningenphp/events/185477132/",
+    "start_at": "2014-06-05T19:30:00+01:00",
+    "end_at": "2014-06-05T21:30:00+01:00"
+}

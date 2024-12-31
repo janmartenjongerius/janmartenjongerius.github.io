@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "Visual Website Optimizer",
+    "description": "Multivariate testing"
+}

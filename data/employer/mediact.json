@@ -1,0 +1,39 @@
+{
+    "$schema": "../employer.json",
+    "name": "MediaCT",
+    "description": "IT services and consluting, focused on e-commerce.",
+    "logo": "mediact.jpeg",
+    "positions": [
+        {
+            "title": "Senior developer",
+            "description": "At MediaCT I focused on code quality standards, performance and software architecture.\n\nMy main responsibilities included:\n\n- R&D work, creating new products or extensions of existing products\n- the development and design of a Data Integration Platform\n- supporting co-workers in testing code bases\n- enforcing quality standards\n- reviewing research documents and pull requests\n\nI provided healthy feedback to my co-workers and employer. I was always open for discussions and tutoring co-workers.",
+            "start_at": "2015-09-01",
+            "end_at": "2020-11-01",
+            "skills": [
+                {"id": "php"},
+                {"id": "sysops"},
+                {"id": "mysql"},
+                {"id": "js"},
+                {"id": "devops"},
+                {"id": "mentoring"},
+                {"id": "git"},
+                {"id": "symfony"},
+                {"id": "bash"},
+                {"id": "xdebug"},
+                {"id": "cicd"},
+                {"id": "docker"},
+                {"id": "leadership"},
+                {"id": "redis"},
+                {"id": "nginx"},
+                {"id": "jquery"},
+                {"id": "magento"},
+                {"id": "rabbitmq"},
+                {"id": "newrelic"},
+                {"id": "publicspeaking"},
+                {"id": "scala"},
+                {"id": "gatling"},
+                {"id": "tweakwise"}
+            ]
+        }
+    ]
+}

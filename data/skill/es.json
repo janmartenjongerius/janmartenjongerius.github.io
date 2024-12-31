@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "Elasticsearch",
+    "description": "Distributed search and analytics"
+}

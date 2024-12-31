@@ -1,0 +1,9 @@
+{
+    "$schema": "../event.json",
+    "name": "Using PHP 7 in the wild",
+    "description": "Not all of us have the luxury of working with PHP 7 at our day jobs. Luckily, some of us do. This talk will show off pretty interesting benefits for the PHP developers and their managers. PHP 7 lets us do more with less and this talk will get you started in the right direction.",
+    "location": "Herestraat 106, Groningen",
+    "url": "https://www.meetup.com/groningenphp/events/pzhkvlyvnbjb/",
+    "start_at": "2016-10-06T19:00:00+01:00",
+    "end_at": "2016-10-06T21:00:00+01:00"
+}

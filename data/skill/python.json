@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "Python",
+    "description": "Programming language"
+}

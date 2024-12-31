@@ -1,0 +1,22 @@
+{
+    "$schema": "../employer.json",
+    "name": "Bistro Drenths-End",
+    "description": "Bistro / cafetaria combination, located on a corner of the Drenthe province, in The Netherlands.",
+    "positions": [
+        {
+            "title": "Manager",
+            "description": "While managing the Bistro and Cafeteria _Drenths-End_, I gained experience in managing, logistics and training personnel.\n\nIn an effort to simplify recurring tasks, I created:\n\n- A local narrowcasting system for menus and product deals.\n- An inventory management tool to simplify preparing wholesale orders.",
+            "start_at": "2011-04-01",
+            "end_at": "2011-10-01",
+            "skills": [
+                {"id": "php"},
+                {"id": "sysops"},
+                {"id": "mysql"},
+                {"id": "mentoring"},
+                {"id": "leadership"},
+                {"id": "jquery"},
+                {"id": "apache"}
+            ]
+        }
+    ]
+}

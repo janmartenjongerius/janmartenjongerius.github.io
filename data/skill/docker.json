@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "Docker",
+    "description": "Containerized application development"
+}

@@ -1,0 +1,40 @@
+{
+    "$schema": "../employer.json",
+    "name": "Hotels.nl",
+    "description": "Booking platform for lodging in the hospitality sector, focused on The Netherlands.",
+    "logo": "hotelsnl.jpeg",
+    "positions": [
+        {
+            "title": "Medior developer",
+            "description": "While working at Hotels.nl, I gained a lot of experience concerning server management, code revisions, maintaining team based code, maintaining legacy code and developing new code.\n\nMy main role was to develop and maintain highly scalable and pluggable JavaScript applications for their front-end code base. All working on desktop, tablet and other mobile devices.\n\nI was very particular about keeping a high standard for their PHP back-end data models. Overall I kept an eye out for security risks or logic flaws. Additionally, I helped by pointing out optimizations whenever I got the chance.",
+            "start_at": "2012-02-01",
+            "end_at": "2015-08-01",
+            "skills": [
+                {"id": "php"},
+                {"id": "sysops"},
+                {"id": "mysql"},
+                {"id": "js"},
+                {"id": "devops"},
+                {"id": "git"},
+                {"id": "bash"},
+                {"id": "xdebug"},
+                {"id": "jquery"},
+                {"id": "apache"},
+                {"id": "node"},
+                {"id": "twig"},
+                {"id": "python"},
+                {"id": "perl"},
+                {"id": "newrelic"},
+                {"id": "publicspeaking"},
+                {"id": "silex"},
+                {"id": "zend"},
+                {"id": "vwo"},
+                {"id": "backbone"},
+                {"id": "underscore"},
+                {"id": "spry"},
+                {"id": "mootools"},
+                {"id": "smarty"}
+            ]
+        }
+    ]
+}

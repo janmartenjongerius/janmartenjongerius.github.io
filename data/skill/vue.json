@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "Vue.js",
+    "description": "Framework"
+}

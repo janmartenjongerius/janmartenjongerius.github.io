@@ -1,9 +1,9 @@
-version: "3.9"
 name: janmarten_name
 
 services:
   php:
     image: srcoder/development-php:php81-fpm
+    user: 1000:1000
     volumes:
       - ./:/data
 

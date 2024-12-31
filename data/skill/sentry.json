@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "Sentry.io",
+    "description": "Error tracking with stack traces and request context"
+}

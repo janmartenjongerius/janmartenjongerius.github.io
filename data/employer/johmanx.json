@@ -1,0 +1,30 @@
+{
+    "$schema": "../employer.json",
+    "name": "Self-Employed",
+    "description": "Freelance IT services and consulting, focused on web development.",
+    "positions": [
+        {
+            "title": "Junior developer",
+            "description": "As a freelance developer, I took on all the aspects of a web development company.\n\nFrom installing servers to hosting sites, from migrating sites to developing web applications.",
+            "start_at": "2007-11-01",
+            "end_at": "2011-12-01",
+            "skills": [
+                {"id": "php"},
+                {"id": "sysops"},
+                {"id": "mysql"},
+                {"id": "js"},
+                {"id": "devops"},
+                {"id": "bash"},
+                {"id": "jquery"},
+                {"id": "apache"},
+                {"id": "python"},
+                {"id": "perl"},
+                {"id": "wp"},
+                {"id": "usermin"},
+                {"id": "webmin"},
+                {"id": "virtualmin"},
+                {"id": "codeigniter"}
+            ]
+        }
+    ]
+}
