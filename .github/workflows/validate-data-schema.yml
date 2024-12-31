@@ -11,24 +11,26 @@ on:
 
 jobs:
     validate:
-        runs-on: ubuntu-latest
+      name: 'Validate: ${{ matrix.data }}'
+      runs-on: ubuntu-latest
 
-        strategy:
-          fail-fast: false
-          matrix:
-            include:
-              - schema: data/employer.json
-                data: data/employer/*.json
-              - schema: data/event.json
-                data: data/event/*.json
-              - schema: data/skill.json
-                data: data/skill/*.json
+      strategy:
+        fail-fast: false
+        matrix:
+          include:
+            - schema: data/employer.json
+              data: data/employer/*.json
+            - schema: data/event.json
+              data: data/event/*.json
+            - schema: data/skill.json
+              data: data/skill/*.json
 
-        steps:
-            - uses: actions/checkout@v4
+      steps:
+          - uses: actions/checkout@v4
 
-            - uses: ammarlakis/action-ajv@master
-              with:
-                schema: ${{ matrix.schema }}
-                data: ${{ matrix.data }}
-                allErrors: true
+          - uses: ammarlakis/action-ajv@master
+            with:
+              schema: ${{ matrix.schema }}
+              data: ${{ matrix.data }}
+              allErrors: true
+              loadSchema: true
