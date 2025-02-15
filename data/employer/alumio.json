@@ -29,7 +29,8 @@
                 {"id": "twig"},
                 {"id": "k8s"},
                 {"id": "react"},
-                {"id": "es"}
+                {"id": "es"},
+                {"id": "gcp"}
             ]
         }
     ]

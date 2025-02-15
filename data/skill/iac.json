@@ -1,0 +1,5 @@
+{
+    "$schema": "../skill.json",
+    "name": "IaC",
+    "description": "Infrastructure as Code"
+}

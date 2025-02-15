@@ -33,7 +33,10 @@
         {"id": "js"},
         {"id": "docker"},
         {"id": "sysops"},
-        {"id": "devops"}
+        {"id": "devops"},
+        {"id": "k8s"},
+        {"id": "gcp"},
+        {"id": "iac"}
       ]
     }
   ]
