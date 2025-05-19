@@ -2,6 +2,8 @@ install::
 
 build:: install
 
+APP_ENV := $(shell echo $${APP_ENV:-dev})
+
 clean::
 	rm -rf vendor
 	rm -rf var/cache/*
@@ -45,7 +47,12 @@ clean::
 
 public/build/manifest.json: node_modules/.package-lock.json
 	mkdir -p public/build
+ifeq ($(APP_ENV), 'prod')
 	npm run build
+endif
+ifneq ($(APP_ENV), 'prod')
+	npm run dev
+endif
 
 build:: public/build/manifest.json
 
@@ -67,7 +74,7 @@ clean::
 
 dist/index.html: vendor/autoload.php var/data.db $(wildcard templates/*.twig) $(wildcard templates/*/*.twig) $(wildcard translations/*.php) $(wildcard config/*) $(wildcard config/*/*)
 	mkdir -p dist
-	php bin/console app:build > dist/index.html.tmp
+	bin/console app:build > dist/index.html.tmp
 	mv -f dist/index.html.tmp dist/index.html
 
 build:: dist/index.html dist/build/manifest.json

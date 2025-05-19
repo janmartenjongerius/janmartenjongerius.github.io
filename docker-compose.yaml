@@ -4,6 +4,9 @@ services:
   clean:
     init: true
     tty: true
+    environment:
+      - "APP_ENV=${APP_ENV:-dev}"
+      - "APP_SECRET=${APP_SECRET:-}"
     volumes:
       - .:/app
     profiles:
@@ -24,28 +27,25 @@ services:
       service: clean
     profiles:
       - build
-    environment:
-      - "APP_ENV=${APP_ENV:-dev}"
-      - "APP_SECRET=${APP_SECRET:-change}"
     command:
       - make
       - build
 
-  install:
+  local:
     extends:
-      service: clean
-    profiles:
-      - install
+      service: build
+    depends_on:
+      build:
+        condition: service_completed_successfully
     command:
       - make
-      - install
       - public/index.html
 
   app:
     extends:
       service: clean
     depends_on:
-      install:
+      local:
         condition: service_completed_successfully
     ports:
       - '8080:8080'
