@@ -29,8 +29,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build Docker service
+        run: docker compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g) build
+
       - name: Build website
-        run: docker compose run --user root --rm build
+        run: docker compose run --rm build
         env:
           APP_ENV: prod
           APP_SECRET: ${{ secrets.APP_SECRET }}
