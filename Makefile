@@ -45,12 +45,12 @@ install:: assets/icons/mini
 clean::
 	rm -f assets/icons/mini
 
-public/build/manifest.json: node_modules/.package-lock.json
+public/build/manifest.json public/build/entrypoints.json: node_modules/.package-lock.json
 	mkdir -p public/build
-ifeq ($(APP_ENV), 'prod')
+ifeq ($(APP_ENV), prod)
 	npm run build
 endif
-ifneq ($(APP_ENV), 'prod')
+ifneq ($(APP_ENV), prod)
 	npm run dev
 endif
 
@@ -58,7 +58,6 @@ build:: public/build/manifest.json
 
 clean::
 	rm -rf public/build
-
 
 dist/build/manifest.json: public/build/manifest.json
 	mkdir -p dist
@@ -72,7 +71,7 @@ var/data.db: vendor/autoload.php $(wildcard data/*.json) $(wildcard data/*/*.jso
 clean::
 	rm -f var/data.db
 
-dist/index.html: vendor/autoload.php var/data.db $(wildcard templates/*.twig) $(wildcard templates/*/*.twig) $(wildcard translations/*.php) $(wildcard config/*) $(wildcard config/*/*)
+dist/index.html: public/build/entrypoints.json assets/icons/mini assets/icons/outline vendor/autoload.php var/data.db $(wildcard templates/*.twig) $(wildcard templates/*/*.twig) $(wildcard translations/*.php) $(wildcard config/*) $(wildcard config/*/*)
 	mkdir -p dist
 	bin/console app:build > dist/index.html.tmp
 	mv -f dist/index.html.tmp dist/index.html
