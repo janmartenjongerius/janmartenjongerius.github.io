@@ -1,14 +1,55 @@
 name: janmarten_name
 
 services:
-  php:
-    image: srcoder/development-php:php81-fpm
-    user: 1000:1000
+  clean:
+    init: true
+    tty: true
     volumes:
-      - ./:/data
+      - .:/app
+    profiles:
+      - clean
+    build:
+      target: dev
+      context: .
+      args:
+        PHP_VERSION: 8.3
+        PHP_EXTENSIONS: '@composer intl'
+        NODE_VERSION: 16
+    command:
+      - make
+      - clean
 
-  nodejs:
-    image: node:16-alpine
-    working_dir: /home/node
-    volumes:
-      - ./:/home/node
+  build:
+    extends:
+      service: clean
+    profiles:
+      - build
+    environment:
+      - "APP_ENV=${APP_ENV:-dev}"
+      - "APP_SECRET=${APP_SECRET:-change}"
+    command:
+      - make
+      - build
+
+  install:
+    extends:
+      service: clean
+    profiles:
+      - install
+    command:
+      - make
+      - install
+      - public/index.html
+
+  app:
+    extends:
+      service: clean
+    depends_on:
+      install:
+        condition: service_completed_successfully
+    ports:
+      - '8080:8080'
+    command:
+      - npm
+      - run
+      - dev-server

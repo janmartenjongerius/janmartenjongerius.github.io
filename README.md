@@ -10,12 +10,11 @@ You can find out more about me on my [personal homepage](https://janmarten.name)
 To do a fresh installation, run:
 
 ```bash
-make clean install
+docker compose run --rm clean
 ```
 
 Then, to run the development server for assets:
 
 ```bash
-nvm use 16
-npm run dev-server
+docker compose up app
 ```

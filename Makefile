@@ -57,7 +57,7 @@ dist/build/manifest.json: public/build/manifest.json
 	mkdir -p dist
 	cp -r public/build dist/
 
-var/data.db: vendor/autoload.php
+var/data.db: vendor/autoload.php $(wildcard data/*.json) $(wildcard data/*/*.json)
 	php bin/console doctrine:schema:create --no-interaction --quiet
 	php bin/console doctrine:schema:update --no-interaction --force --complete
 	php bin/console doctrine:fixtures:load --no-interaction
@@ -65,7 +65,7 @@ var/data.db: vendor/autoload.php
 clean::
 	rm -f var/data.db
 
-dist/index.html: vendor/autoload.php var/data.db
+dist/index.html: vendor/autoload.php var/data.db $(wildcard templates/*.twig) $(wildcard templates/*/*.twig) $(wildcard translations/*.php) $(wildcard config/*) $(wildcard config/*/*)
 	mkdir -p dist
 	php bin/console app:build > dist/index.html.tmp
 	mv -f dist/index.html.tmp dist/index.html
@@ -74,3 +74,9 @@ build:: dist/index.html dist/build/manifest.json
 
 clean::
 	rm -rf dist
+
+public/index.html: dist/index.html
+	cp dist/index.html public/index.html
+
+clean::
+	rm -f public/index.html

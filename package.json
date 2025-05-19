@@ -16,7 +16,7 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "dev-server": "encore dev-server --live-reload",
+        "dev-server": "encore dev-server --host 0.0.0.0 --port 8080",
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
