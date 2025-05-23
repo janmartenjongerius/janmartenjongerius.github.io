@@ -78,6 +78,12 @@ dist/index.html: public/build/entrypoints.json assets/icons/mini assets/icons/ou
 
 build:: dist/index.html dist/build/manifest.json
 
+dist/resume.pdf: public/resume.pdf
+	@mkdir -p $(@D)
+	@cp $< $@
+
+build:: dist/resume.pdf
+
 clean::
 	rm -rf dist
 
