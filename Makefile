@@ -64,6 +64,7 @@ dist/build/manifest.json: public/build/manifest.json
 	cp -r public/build dist/
 
 var/data.db: vendor/autoload.php $(wildcard data/*.json) $(wildcard data/*/*.json)
+	rm -f $@
 	php bin/console doctrine:schema:create --no-interaction --quiet
 	php bin/console doctrine:schema:update --no-interaction --force --complete
 	php bin/console doctrine:fixtures:load --no-interaction

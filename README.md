@@ -10,11 +10,13 @@ You can find out more about me on my [personal homepage](https://janmarten.name)
 To do a fresh installation, run:
 
 ```bash
-docker compose run --rm clean
+make clean
 ```
 
 Then, to run the development server for assets:
 
 ```bash
-docker compose up app
+docker compose --profile app up
 ```
+
+The application will then be available on http://localhost:8000

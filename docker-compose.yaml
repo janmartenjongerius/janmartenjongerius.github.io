@@ -1,6 +1,7 @@
 name: janmarten_name
 
 services:
+  # Base service and IDE interpreter.
   clean:
     init: true
     tty: true
@@ -22,6 +23,7 @@ services:
       - make
       - clean
 
+  # Composer interpreter.
   composer:
     extends:
       service: clean
@@ -32,30 +34,25 @@ services:
     command:
       - composer
 
+  # Dockerized build.
   build:
     extends:
       service: clean
     profiles:
       - build
+      - app
     command:
       - make
       - build
 
-  local:
-    extends:
-      service: build
-    depends_on:
-      build:
-        condition: service_completed_successfully
-    command:
-      - make
-      - public/index.html
-
-  app:
+  # Local development front-end.
+  front-end:
+    profiles:
+      - app
     extends:
       service: clean
     depends_on:
-      local:
+      build:
         condition: service_completed_successfully
     ports:
       - '8080:8080'
@@ -63,3 +60,24 @@ services:
       - npm
       - run
       - dev-server
+
+  # Local development back-end.
+  back-end:
+    profiles:
+      - app
+    extends:
+      service: clean
+    build:
+      target: symfony
+    depends_on:
+      build:
+        condition: service_completed_successfully
+    command:
+      - symfony
+      - local:server:start
+      - --allow-http
+      - --no-tls
+      - --allow-all-ip
+      - --allow-cors
+    ports:
+      - '8000:8000'

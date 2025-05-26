@@ -55,3 +55,12 @@ user root:root
 run apt update && apt install git -y
 
 user app:app
+
+# Install Symfony CLI.
+from dev as symfony
+
+user root:root
+
+run curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash && apt install symfony-cli -y
+
+user app:app
