@@ -22,6 +22,16 @@ services:
       - make
       - clean
 
+  composer:
+    extends:
+      service: clean
+    build:
+      target: composer
+    profiles:
+      - composer
+    command:
+      - composer
+
   build:
     extends:
       service: clean

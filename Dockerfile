@@ -1,6 +1,6 @@
 # Select the PHP installation.
 arg PHP_VERSION=8.3
-from php:$PHP_VERSION as php_base
+from php:${PHP_VERSION}-cli as php_base
 
 add --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 arg PHP_EXTENSIONS="@composer intl"
@@ -46,3 +46,12 @@ workdir /app
 
 entrypoint ["bash", "-c", "source $NVM_DIR/nvm.sh && exec \"$@\"", "--"]
 cmd ["/bin/bash"]
+
+# Add utilities for Composer operations.
+from dev as composer
+
+user root:root
+
+run apt update && apt install git -y
+
+user app:app
