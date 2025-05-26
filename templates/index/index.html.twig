@@ -41,6 +41,24 @@
 {% endblock %}
 
 {% block feature %}
+    {% if testimonials|length > 0 %}
+        <div class="bg-emerald-100 py-24 sm:py-32">
+            <div class="mx-auto max-w-3xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl text-center">
+                    <h2 class="text-base/7 font-semibold text-emerald-600">Testimonials</h2>
+                    <p class="mt-2 text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">Recommended by peers 🌸</p>
+                </div>
+                <div class="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+                    <div class="-mt-8 sm:-mx-4">
+                        {% for testimonial in testimonials|sort((a, b) => b.date <=> a.date) %}
+                            {{ component('testimonial', {testimonial: testimonial}) }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     {{ parent() }}
 
     {% if events|length > 0 %}

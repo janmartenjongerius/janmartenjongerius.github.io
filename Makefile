@@ -87,9 +87,3 @@ build:: dist/resume.pdf
 
 clean::
 	rm -rf dist
-
-public/index.html: dist/index.html
-	cp dist/index.html public/index.html
-
-clean::
-	rm -f public/index.html

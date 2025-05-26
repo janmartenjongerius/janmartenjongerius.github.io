@@ -1,0 +1,23 @@
+{% block testimonial %}
+    {% set imageWidth = 64 %}
+
+    <div class="pt-8 sm:inline-block sm:w-full sm:px-4">
+        <figure class="rounded-2xl bg-gray-50 p-8 text-sm/6">
+            <blockquote class="text-gray-900 space-y-3">
+                {{ testimonial.content|markdown }}
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-x-4">
+                {{ testimonial.avatar|image(
+                    width = imageWidth,
+                    height = 'auto',
+                    alt = testimonial.name,
+                ) }}
+                <div>
+                    <a href="{{ testimonial.url }}" rel="noreferrer nofollow" class="font-semibold text-gray-900" target="_blank">{{ testimonial.name }}</a>
+                    <div class="text-gray-600">{{ testimonial.relation }}</div>
+                    <div class="text-gray-600">{{ testimonial.date|date('M d Y') }}</div>
+                </div>
+            </figcaption>
+        </figure>
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{
+  "$schema": "../testimonial.json",
+  "name": "JC Heyneke",
+  "avatar": "jcheyneke.jpeg",
+  "relation": "managed me directly",
+  "date": "2025-05-22",
+  "content": "Jan-Marten is a very good senior engineer and architect. But even more impressive is his high EQ, empathy and ability to lead and coach a team to collective high performance! He is super dedicated to both the business/technical outcomes, as well his team. He doesn’t take shortcuts, but build software and the team for the long run.",
+  "url": "https://www.linkedin.com/in/jc-heyneke/"
+}

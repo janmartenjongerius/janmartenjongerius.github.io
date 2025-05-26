@@ -74,7 +74,7 @@ services:
         condition: service_completed_successfully
     command:
       - symfony
-      - local:server:start
+      - serve
       - --allow-http
       - --no-tls
       - --allow-all-ip
