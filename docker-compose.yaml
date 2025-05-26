@@ -37,7 +37,7 @@ services:
   # Dockerized build.
   build:
     extends:
-      service: clean
+      service: composer
     profiles:
       - build
       - app
