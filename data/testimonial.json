@@ -13,7 +13,8 @@
       "type": "string",
       "enum": [
         "reported directly to me",
-        "managed me directly"
+        "managed me directly",
+        "senior to me"
       ]
     },
     "avatar": {
