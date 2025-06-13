@@ -18,6 +18,7 @@ services:
         exclude:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
+            - '../src/Pdf/DomPdfProxy.php'
             - '../src/Kernel.php'
 
     _instanceof:
