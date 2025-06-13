@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class IndexController extends AbstractController
 {
     #[Route('/', name: 'app_index')]
+    #[Route('/index.html')]
     public function index(
         EmploymentRepository $employmentRepository,
         EventRepository $eventRepository,

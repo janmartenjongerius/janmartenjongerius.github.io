@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use Psr\Http\Message\UriFactoryInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -10,6 +11,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 #[AsCommand(
@@ -18,12 +20,13 @@ use Symfony\Component\HttpKernel\KernelInterface;
 )]
 final class BuildCommand extends Command
 {
-    const ARGUMENT_PATH = 'path';
-    const OPTION_BASE_URL = 'base-url';
+    const string ARGUMENT_PATH = 'path';
+    const string OPTION_BASE_URL = 'base-url';
 
     public function __construct(
         private readonly KernelInterface $kernel,
         private readonly RequestStack $requestStack,
+        private readonly UriFactoryInterface $uriFactory,
         string $name = null
     ) {
         parent::__construct($name);
@@ -48,21 +51,34 @@ final class BuildCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-
-
         $output->writeln(
-            $this
-                ->kernel
-                ->handle(
-                    (
-                        $this->requestStack->getCurrentRequest()
-                        ?? Request::create($input->getArgument(self::ARGUMENT_URL))
-                    ),
-                    catch: false
-                )
-                ->getContent()
+            $this->getResponse($input)->getContent()
         );
 
         return self::SUCCESS;
+    }
+
+    private function getResponse(InputInterface $input): Response
+    {
+        return $this->kernel->handle(
+            $this->getRequest($input),
+            catch: false
+        );
+    }
+
+    private function getRequest(InputInterface $input): Request
+    {
+        $request = $this->requestStack->getCurrentRequest();
+
+        if (!$request) {
+            $request = Request::create(
+                (string) $this
+                    ->uriFactory
+                    ->createUri((string) $input->getOption(self::OPTION_BASE_URL))
+                    ->withPath((string) $input->getArgument(self::ARGUMENT_PATH))
+            );
+        }
+
+        return $request;
     }
 }
