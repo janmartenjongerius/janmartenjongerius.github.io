@@ -6,6 +6,7 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -17,7 +18,8 @@ use Symfony\Component\HttpKernel\KernelInterface;
 )]
 final class BuildCommand extends Command
 {
-    const ARGUMENT_URL = 'url';
+    const ARGUMENT_PATH = 'path';
+    const OPTION_BASE_URL = 'base-url';
 
     public function __construct(
         private readonly KernelInterface $kernel,
@@ -30,15 +32,24 @@ final class BuildCommand extends Command
     protected function configure(): void
     {
         $this->addArgument(
-            self::ARGUMENT_URL,
-            InputArgument::OPTIONAL,
-            'The URL to request when building.',
+            self::ARGUMENT_PATH,
+            InputArgument::REQUIRED,
+            'Path to request.'
+        );
+
+        $this->addOption(
+            self::OPTION_BASE_URL,
+            'b',
+            InputOption::VALUE_OPTIONAL,
+            'The Base URL to request when building.',
             $_ENV['APP_HOMEPAGE'] ?? 'http://localhost/'
         );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+
+
         $output->writeln(
             $this
                 ->kernel

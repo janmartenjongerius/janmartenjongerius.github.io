@@ -72,18 +72,12 @@ var/data.db: vendor/autoload.php $(wildcard data/*.json) $(wildcard data/*/*.jso
 clean::
 	rm -f var/data.db
 
-dist/index.html: public/build/entrypoints.json assets/icons/mini assets/icons/outline vendor/autoload.php var/data.db $(wildcard templates/*.twig) $(wildcard templates/*/*.twig) $(wildcard translations/*.php) $(wildcard config/*) $(wildcard config/*/*)
+dist/%: public/build/entrypoints.json assets/icons/mini assets/icons/outline vendor/autoload.php var/data.db $(wildcard templates/*.twig) $(wildcard templates/*/*.twig) $(wildcard translations/*.php) $(wildcard config/*) $(wildcard config/*/*)
 	mkdir -p dist
-	bin/console app:build > dist/index.html.tmp
-	mv -f dist/index.html.tmp dist/index.html
+	bin/console app:build $* > dist/output.tmp
+	mv -f dist/output.tmp $@
 
-build:: dist/index.html dist/build/manifest.json
-
-dist/resume.pdf: public/resume.pdf
-	@mkdir -p $(@D)
-	@cp $< $@
-
-build:: dist/resume.pdf
+build:: dist/index.html dist/resume.pdf dist/build/manifest.json
 
 clean::
 	rm -rf dist
