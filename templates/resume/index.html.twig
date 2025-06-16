@@ -1,3 +1,46 @@
-Hello, World!
+{% block content %}
+    <title>Resume Jan-Marten Jongerius</title>
 
-{{ dump() }}
+    <h1>Jan-Marten Jongerius</h1>
+    <p>Engineering Lead</p>
+
+    <p>... Personalia ...</p>
+
+    <p>... Professional summary ...</p>
+
+    <h2>Skills</h2>
+
+    <p>... Enter skills summary ...</p>
+
+    {% if employments is defined and employments|length > 0 %}
+        <h2>Experience</h2>
+
+        {% for employment in employments|sort((a, b) => b.startAt <=> a.startAt) %}
+            {{ dump(employment) }}
+        {% endfor %}
+    {% endif %}
+
+    {% if educations is defined and educations|length > 0 %}
+        <h2>Education</h2>
+
+        {% for education in educations|sort((a, b) => b.startAt <=> a.startAt) %}
+            {{ dump(education) }}
+        {% endfor %}
+    {% endif %}
+
+    {% if certifications is defined and certifications|length > 0 %}
+        <h2>Certifications</h2>
+
+        {% for certification in certifications|sort((a, b) => b.issuedAt <=> a.issuedAt) %}
+            {{ dump(certification) }}
+        {% endfor %}
+    {% endif %}
+
+    {% if testimonials is defined and testimonials|length > 0 %}
+        <h2>Recommendations</h2>
+
+        {% for testimonial in testimonials|sort((a, b) => b.date <=> a.date) %}
+            {{ dump(testimonial) }}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

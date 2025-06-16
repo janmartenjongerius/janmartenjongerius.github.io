@@ -15,8 +15,7 @@ final class ResumeController extends AbstractController
 {
     public function __construct(
         private readonly PdfFactoryInterface $pdfFactory
-    )
-    {
+    ) {
     }
 
     public function __invoke(
@@ -29,6 +28,8 @@ final class ResumeController extends AbstractController
                 [
                     'employments' => $employmentRepository->findAll(),
                     'testimonials' => $testimonialRepository->findAll(),
+                    'educations' => [],
+                    'certifications' => [],
                 ]
             )
         );
