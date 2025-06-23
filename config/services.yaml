@@ -20,6 +20,7 @@ services:
             - '../src/Entity/'
             - '../src/Pdf/DomPdfProxy.php'
             - '../src/Kernel.php'
+            - '../src/Twig/Asset.php'
 
     _instanceof:
         Twig\Extension\AbstractExtension:
