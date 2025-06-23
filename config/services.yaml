@@ -22,6 +22,20 @@ services:
             - '../src/Kernel.php'
             - '../src/Twig/Asset.php'
 
+
+
+    App\Pdf\PdfFactoryInterface: '@App\Pdf\DomPdfFactory'
+    App\Pdf\DomPdfFactory:
+        arguments:
+            $options: '@Dompdf\Options'
+
+    Dompdf\Options:
+        calls:
+            # If this setting is set to true, DOMPDF will access remote sites
+            #   for images and CSS files as required.
+            # Useful for Google Fonts.
+            - setIsRemoteEnabled: [true]
+
     _instanceof:
         Twig\Extension\AbstractExtension:
             tags:
