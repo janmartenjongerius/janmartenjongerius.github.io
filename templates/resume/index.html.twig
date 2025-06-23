@@ -1,48 +1,153 @@
-{% block content %}
+{% block meta %}
     <title>Resume Jan-Marten Jongerius</title>
+{% endblock %}
 
-    <h1>Jan-Marten Jongerius</h1>
-    <p>Engineering Lead</p>
+{% block content %}
+    <div class="row">
+        <div class="col col-left">
+            <h1>Jan-Marten Jongerius</h1>
+            <p>Engineering Lead</p>
 
-    <img src="{{ avatar|data_uri }}" width="185" height="185" alt="Jan-Marten Jongerius" />
+            <figure>
+                <img src="{{ avatar|data_uri }}" width="185" height="185" alt="Jan-Marten Jongerius" />
+            </figure>
+        </div>
+        <div class="col col-right">
+            <p>... Personalia ...</p>
 
-    <p>... Personalia ...</p>
+            <p>... Professional summary ...</p>
+        </div>
+    </div>
 
-    <p>... Professional summary ...</p>
-
-    <h2>Skills</h2>
-
-    <p>... Enter skills summary ...</p>
+    <div class="row">
+        <div class="col col-left">
+            <h2>Skills</h2>
+        </div>
+        <div class="col col-right">
+            <p>... Enter skills summary ...</p>
+        </div>
+    </div>
 
     {% if employments is defined and employments|length > 0 %}
-        <h2>Experience</h2>
-
-        {% for employment in employments|sort((a, b) => b.startAt <=> a.startAt) %}
-            {{ dump(employment) }}
-        {% endfor %}
+        <div class="row">
+            <div class="col col-left">
+                <h2>Experience</h2>
+            </div>
+            <div class="col col-right">
+                {% for employment in employments|sort((a, b) => b.startAt <=> a.startAt) %}
+                    {{ dump(employment) }}
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
 
     {% if educations is defined and educations|length > 0 %}
-        <h2>Education</h2>
+        <div class="row">
+            <div class="col col-left">
+                <h2>Education</h2>
+            </div>
 
-        {% for education in educations|sort((a, b) => b.startAt <=> a.startAt) %}
-            {{ dump(education) }}
-        {% endfor %}
+            <div class="col rol-right">
+                {% for education in educations|sort((a, b) => b.startAt <=> a.startAt) %}
+                    {{ dump(education) }}
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
 
     {% if certifications is defined and certifications|length > 0 %}
-        <h2>Certifications</h2>
+        <div class="row">
+            <div class="col col-left">
+                <h2>Certifications</h2>
+            </div>
 
-        {% for certification in certifications|sort((a, b) => b.issuedAt <=> a.issuedAt) %}
-            {{ dump(certification) }}
-        {% endfor %}
+            <div class="col rol-right">
+                {% for certification in certifications|sort((a, b) => b.issuedAt <=> a.issuedAt) %}
+                    {{ dump(certification) }}
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
 
     {% if testimonials is defined and testimonials|length > 0 %}
-        <h2>Recommendations</h2>
+        <div class="row">
+            <div class="col col-left">
+                <h2>Recommendations</h2>
+            </div>
 
-        {% for testimonial in testimonials|sort((a, b) => b.date <=> a.date) %}
-            {{ dump(testimonial) }}
-        {% endfor %}
+            <div class="col col-right">
+                {% for testimonial in testimonials|sort((a, b) => b.date <=> a.date) %}
+                    {{ dump(testimonial) }}
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
+{% endblock %}
+
+{% block style %}
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Raleway:wght@700" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        h1, h2, h3 {
+            font-family: "Raleway", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        h1 {
+            margin: -6px 0 0;
+        }
+
+        figure {
+            display: block;
+            margin: 0 auto;
+        }
+
+        figure img {
+            display: inline-block;
+            margin: 0 4px;
+        }
+
+        .row {
+            clear: both;
+            padding: 20px 40px;
+            margin: 0 auto;
+            width: 645px;
+        }
+
+        .row:first-child .col-left::before {
+            display: none;
+        }
+
+        .col::before {
+            display: block;
+            content: '';
+            background: #000;
+            margin: 0;
+        }
+
+        .col-left {
+            float: left;
+            width: 235px;
+        }
+        .col-left::before {
+            height: 1px;
+            width: 15px;
+            margin-bottom: -1px;
+        }
+
+        .col-right {
+            float: right;
+            width: 410px;
+        }
+        .col-right::before {
+            height: 4px;
+            margin-bottom: -4px;
+        }
+    </style>
 {% endblock %}
