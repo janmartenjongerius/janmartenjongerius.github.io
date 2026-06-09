@@ -5,8 +5,8 @@
   "logo": "oceanrecap.jpeg",
   "positions": [
     {
-      "title": "Lead Developer",
-      "description": "As a mixed lead and full stack engineer, I focused on keeping the team on track\nwhile picking up some of the more challenging projects.\n\n- Adding support for HTML clipboard data converted into bespoke document format and styling\n- Correctly ensuring mutability and safe updates of legal documents\n- Introduced intuitive fluid interfaces to improve readability and ease of testing asynchronous messages\n- Continuous focus on improvement of work culture\n- Mentoring co-workers and guiding junior developers\n- Set up and maintained local development through Docker Compose\n- Created a proof of concept for adding drag & drop support to bespoke document structures in the contract editor\n- Performance profiling and speed improvements of PDF document parsing and document importing\n\nWith a keen focus on detail and proper preparation, even with tight deadlines,\nthe quality and correctness of legal documents could be guaranteed.",
+      "title": "Full-stack Developer",
+      "description": "As a full-stack developer, I focused on keeping the team on track\nwhile picking up some of the more challenging projects.\n\n- Adding support for HTML clipboard data converted into bespoke document format and styling\n- Correctly ensuring mutability and safe updates of legal documents\n- Introduced intuitive fluid interfaces to improve readability and ease of testing asynchronous messages\n- Continuous focus on improvement of work culture\n- Mentoring co-workers and guiding junior developers\n- Set up and maintained local development through Docker Compose\n- Created a proof of concept for adding drag & drop support to bespoke document structures in the contract editor\n- Performance profiling and speed improvements of PDF document parsing and document importing\n\nWith a keen focus on detail and proper preparation, even with tight deadlines,\nthe quality and correctness of legal documents could be guaranteed.",
       "start_at": "2025-08-19",
       "end_at": null,
       "skills": [
